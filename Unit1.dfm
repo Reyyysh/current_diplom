@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
@@ -72,6 +73,41 @@ object Form1: TForm1
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 8
+    Top = 129
+    Width = 240
+    Height = 25
+    TabOrder = 5
+  end
+  object DBNavigator2: TDBNavigator
+    Left = 8
+    Top = 286
+    Width = 240
+    Height = 25
+    TabOrder = 6
+  end
+  object DBNavigator3: TDBNavigator
+    Left = 8
+    Top = 446
+    Width = 240
+    Height = 25
+    TabOrder = 7
+  end
+  object DBNavigator4: TDBNavigator
+    Left = 416
+    Top = 129
+    Width = 240
+    Height = 25
+    TabOrder = 8
+  end
+  object DBNavigator5: TDBNavigator
+    Left = 416
+    Top = 286
+    Width = 240
+    Height = 25
+    TabOrder = 9
   end
   object ADOConnection1: TADOConnection
     Left = 344
