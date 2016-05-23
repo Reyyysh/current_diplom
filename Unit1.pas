@@ -5,7 +5,11 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, Data.Win.ADODB, Vcl.ExtCtrls, Vcl.DBCtrls;
+  Vcl.DBGrids, Data.Win.ADODB, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Mask, ComObj, ADOX_TLB ;
+
+ // Vcl.ExtCtrls, Vcl.DBCtrls,
+//ADOX_TLB, Vcl.Mask,
+ // Vcl.ToolWin, Vcl.ComCtrls, Vcl.Menus, ComObj, Unit2;
 
 type
   TForm1 = class(TForm)
@@ -34,6 +38,13 @@ type
     DBNavigator3: TDBNavigator;
     DBNavigator4: TDBNavigator;
     DBNavigator5: TDBNavigator;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    Panel3: TPanel;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -43,6 +54,11 @@ type
 
 var
   Form1: TForm1;
+  DB:Catalog;
+  Tables:Table;
+  Columns:Column;
+  excel: variant; // Переменная в которой создаётся объект EXCEL
+
 
 implementation
 

@@ -109,6 +109,56 @@ object Form1: TForm1
     Height = 25
     TabOrder = 9
   end
+  object DBEdit1: TDBEdit
+    Left = 416
+    Top = 336
+    Width = 121
+    Height = 21
+    TabOrder = 10
+  end
+  object DBEdit2: TDBEdit
+    Left = 416
+    Top = 363
+    Width = 121
+    Height = 21
+    TabOrder = 11
+  end
+  object DBEdit3: TDBEdit
+    Left = 416
+    Top = 390
+    Width = 121
+    Height = 21
+    TabOrder = 12
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 576
+    Top = 336
+    Width = 145
+    Height = 21
+    TabOrder = 13
+  end
+  object DBLookupComboBox2: TDBLookupComboBox
+    Left = 576
+    Top = 363
+    Width = 145
+    Height = 21
+    TabOrder = 14
+  end
+  object DBLookupComboBox3: TDBLookupComboBox
+    Left = 576
+    Top = 390
+    Width = 145
+    Height = 21
+    TabOrder = 15
+  end
+  object Panel3: TPanel
+    Left = 448
+    Top = 440
+    Width = 185
+    Height = 41
+    Caption = 'Panel3'
+    TabOrder = 16
+  end
   object ADOConnection1: TADOConnection
     Left = 344
     Top = 8
