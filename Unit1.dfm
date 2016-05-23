@@ -29,4 +29,12 @@ object Form1: TForm1
     Caption = #1040#1085#1076#1088#1077#1081
     TabOrder = 1
   end
+  object Button3: TButton
+    Left = 144
+    Top = 161
+    Width = 75
+    Height = 25
+    Caption = #1093#1091#1081
+    TabOrder = 2
+  end
 end
