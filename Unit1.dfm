@@ -26,9 +26,9 @@ object Form1: TForm1
     TabOrder = 0
   end
   object DBGrid2: TDBGrid
-    Left = 453
+    Left = 454
     Top = 0
-    Width = 135
+    Width = 134
     Height = 570
     Align = alRight
     FixedColor = clWindow
@@ -214,9 +214,9 @@ object Form1: TForm1
       TabOrder = 2
     end
     object DBGrid5: TDBGrid
-      Left = 200
+      Left = 184
       Top = 387
-      Width = 404
+      Width = 420
       Height = 114
       Align = alRight
       TabOrder = 3
@@ -228,22 +228,22 @@ object Form1: TForm1
     end
   end
   object GroupBox1: TGroupBox
-    Left = 260
+    Left = 296
     Top = 0
-    Width = 193
+    Width = 158
     Height = 570
     Align = alRight
     Caption = #1044#1086#1076#1072#1074#1072#1085#1085#1103
     TabOrder = 5
     object Label1: TLabel
-      Left = 24
+      Left = 6
       Top = 31
       Width = 146
       Height = 13
       Caption = #1042#1074#1077#1076#1110#1090#1100' '#1087#1088#1110#1079#1074#1080#1097#1077' '#1074#1080#1082#1083#1072#1076#1072#1095#1072
     end
     object Label9: TLabel
-      Left = 24
+      Left = 6
       Top = 124
       Width = 130
       Height = 13
@@ -264,7 +264,7 @@ object Form1: TForm1
       Caption = #1042#1074#1077#1076#1110#1090#1100' ID '#1075#1088#1091#1087#1080
     end
     object Button2: TButton
-      Left = 24
+      Left = 6
       Top = 311
       Width = 145
       Height = 25
@@ -273,7 +273,7 @@ object Form1: TForm1
       OnClick = Button2Click
     end
     object Button5: TButton
-      Left = 24
+      Left = 6
       Top = 170
       Width = 145
       Height = 25
@@ -282,7 +282,7 @@ object Form1: TForm1
       OnClick = Button5Click
     end
     object Button6: TButton
-      Left = 24
+      Left = 6
       Top = 77
       Width = 145
       Height = 25
@@ -291,36 +291,36 @@ object Form1: TForm1
       OnClick = Button6Click
     end
     object Edit1: TEdit
-      Left = 24
+      Left = 6
       Top = 284
       Width = 145
       Height = 21
       TabOrder = 3
     end
     object Edit2: TEdit
-      Left = 24
+      Left = 6
       Top = 238
       Width = 145
       Height = 21
       TabOrder = 4
     end
     object Edit3: TEdit
-      Left = 24
+      Left = 6
       Top = 143
       Width = 145
       Height = 21
       TabOrder = 5
     end
     object Edit4: TEdit
-      Left = 24
+      Left = 6
       Top = 50
       Width = 145
       Height = 21
       TabOrder = 6
     end
     object Button1: TButton
-      Left = 24
-      Top = 468
+      Left = 6
+      Top = 444
       Width = 145
       Height = 25
       Caption = #1047#1072#1074#1072#1085#1090#1072#1078#1080#1090#1080' '#1079' Excel'
@@ -328,8 +328,8 @@ object Form1: TForm1
       OnClick = Button1Click
     end
     object Button3: TButton
-      Left = 24
-      Top = 497
+      Left = 6
+      Top = 475
       Width = 145
       Height = 25
       Caption = #1044#1086#1076#1072#1090#1080
@@ -337,8 +337,8 @@ object Form1: TForm1
       OnClick = Button3Click
     end
     object Button7: TButton
-      Left = 24
-      Top = 381
+      Left = 6
+      Top = 357
       Width = 145
       Height = 68
       Caption = #1043#1077#1085#1077#1088#1091#1074#1072#1090#1080
@@ -346,8 +346,8 @@ object Form1: TForm1
       OnClick = Button7Click
     end
     object Button8: TButton
-      Left = 24
-      Top = 528
+      Left = 6
+      Top = 506
       Width = 145
       Height = 25
       Caption = #1044#1086#1076#1072#1090#1080' '#1088#1086#1079#1082#1083#1072#1076
@@ -382,16 +382,16 @@ object Form1: TForm1
     Text = 'Edit5'
   end
   object Panel4: TPanel
-    Left = 96
+    Left = 120
     Top = 0
-    Width = 164
+    Width = 176
     Height = 570
     Align = alRight
     TabOrder = 9
-    object DBGrid3: TDBGrid
-      Left = 16
-      Top = 204
-      Width = 142
+    object DBGrid4: TDBGrid
+      Left = 18
+      Top = 185
+      Width = 158
       Height = 180
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
@@ -400,33 +400,33 @@ object Form1: TForm1
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
     end
-    object DBGrid4: TDBGrid
-      Left = 16
-      Top = 390
-      Width = 144
-      Height = 180
-      TabOrder = 1
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-    end
     object DBNavigator3: TDBNavigator
-      Left = -1
-      Top = 204
+      Left = 0
+      Top = -1
+      Width = 20
+      Height = 180
+      Kind = dbnVertical
+      TabOrder = 1
+    end
+    object DBNavigator4: TDBNavigator
+      Left = 0
+      Top = 185
       Width = 20
       Height = 180
       Kind = dbnVertical
       TabOrder = 2
     end
-    object DBNavigator4: TDBNavigator
-      Left = 1
-      Top = 390
-      Width = 20
-      Height = 180
-      Kind = dbnVertical
+    object DBGrid3: TDBGrid
+      Left = 18
+      Top = 0
+      Width = 158
+      Height = 179
       TabOrder = 3
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
     end
   end
   object ADOConnection1: TADOConnection
