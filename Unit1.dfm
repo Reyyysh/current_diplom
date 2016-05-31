@@ -90,7 +90,6 @@ object Form1: TForm1
       Width = 603
       Height = 342
       Align = alTop
-      DragMode = dmAutomatic
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -226,6 +225,22 @@ object Form1: TForm1
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
     end
+    object Edit6: TEdit
+      Left = 6
+      Top = 393
+      Width = 172
+      Height = 21
+      TabOrder = 4
+    end
+    object Button10: TButton
+      Left = 6
+      Top = 420
+      Width = 172
+      Height = 25
+      Caption = #1055#1086#1096#1091#1082
+      TabOrder = 5
+      OnClick = Button10Click
+    end
   end
   object GroupBox1: TGroupBox
     Left = 296
@@ -354,6 +369,15 @@ object Form1: TForm1
       TabOrder = 10
       OnClick = Button8Click
     end
+    object Button9: TButton
+      Left = 6
+      Top = 539
+      Width = 146
+      Height = 25
+      Caption = #1047#1072#1074#1072#1085#1090#1072#1078#1080#1090#1080' '#1074#1080#1082#1083#1072#1076#1072#1095#1110#1074
+      TabOrder = 11
+      OnClick = Button9Click
+    end
   end
   object Button4: TButton
     Left = 0
@@ -392,7 +416,7 @@ object Form1: TForm1
       Left = 18
       Top = 185
       Width = 158
-      Height = 180
+      Height = 379
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -447,7 +471,7 @@ object Form1: TForm1
   end
   object ADOQuery1: TADOQuery
     Parameters = <>
-    Left = 680
+    Left = 696
     Top = 72
   end
   object ADOQuery2: TADOQuery

@@ -77,6 +77,9 @@ type
     Splitter1: TSplitter;
     Panel4: TPanel;
     Button8: TButton;
+    Button9: TButton;
+    Edit6: TEdit;
+    Button10: TButton;
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure DBGrid2CellClick(Column: TColumn);
@@ -90,6 +93,8 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
 
 
 
@@ -115,6 +120,14 @@ implementation
 
 //dataset.tables["blablabla"].rows[i]["ID"]
 //DBGrid2.SelectedField.AsString
+
+procedure TForm1.Button10Click(Sender: TObject);
+begin
+
+     if not ADOQuery1.Locate('Викладач',Edit6.Text,[loCaseInsensitive, loPartialKey])then
+    ShowMessage('Запись не найдена');
+
+end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
@@ -361,6 +374,7 @@ end;
 procedure TForm1.Button7Click(Sender: TObject);
 var
 Result:string;
+i:integer;
 begin
   case DayOfWeek(DateTimePicker1.Date) of
   1: Result := 'Воскресенье';
@@ -372,6 +386,35 @@ begin
   7: Result := 'Суббота';
   end;
   Edit5.Text:=Result;
+
+
+  excel:= CreateOleObject('Excel.Application');
+ // if not OpenDialog1.Execute then exit;
+  excel.WorkBooks.Add;          // Создание новой книги
+  excel.WorkBooks[1].WorkSheets[1].Name := 'Розклад';     //Создание нового листа
+
+
+   for i:=1 to 1000  do
+    begin
+      excel.WorkBooks[1].WorkSheets[1].Columns[i].ColumnWidth := 1;
+    end;
+
+    excel.WorkBooks[1].WorkSheets[1].Range['KL3:MX3'].Merge;
+    excel.WorkBooks[1].WorkSheets[1].Range['KL3']:='Сетрябрь';
+
+    excel.WorkBooks[1].WorkSheets[1].Range['KL4:KM4'].Merge;
+    excel.WorkBooks[1].WorkSheets[1].Range['KL4']:='Чт';
+    excel.WorkBooks[1].WorkSheets[1].Range['KL5:KM5'].Merge;
+    excel.WorkBooks[1].WorkSheets[1].Range['KL5']:='1';
+
+
+
+
+
+
+
+  //excel.WorkBooks.Open('Розклад.xls');
+    excel.Visible:=true;
 end;
 
 
@@ -439,6 +482,40 @@ begin
   ADOQuery5.FieldByName('ПтЗ1').Value :=excel.WorkBooks[1].WorkSheets[1].Range['NV'+add].Value;
   ADOQuery5.FieldByName('ПтЗ2').Value :=excel.WorkBooks[1].WorkSheets[1].Range['NW'+add].Value;
   ADOQuery5.Post;
+    end;
+
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+var
+y,x1,x2,add:string;
+nom,i:integer;
+begin
+
+  y:=excel.Selection.Address;
+ // excel.WorkBooks[1].WorkSheets[1].Range['C14:H28'].Select;
+ // y:='$C$14:$H$28';
+
+  //Нельзя выделять диапазоны с двойными цифрами и одинарными буквами
+
+  for i:=0 to Length(y) do  // Удаление $ из диапазона
+  begin
+  Delete(y,Pos('$',y),1);
+  end;
+
+  x1:=Copy(y,2,Pos(':',y)-2);   // Удаление лишних знаков из диапазона
+  x2:=Copy(y,Pos(':',y)+2,Length(y));
+
+
+  nom:=strtoint(x2)-strtoint(x1);  // Количество записей
+  for i:=0 to nom  do
+    begin
+    add:=inttostr(strtoint(x1)+i);  // Номер елемента
+  ADOQuery4.Insert;
+
+  ADOQuery4.FieldByName('Викладач').Value :=excel.WorkBooks[1].WorkSheets[4].Range['A'+add].Value;
+  ADOQuery4.Post;
+
     end;
 
 end;
