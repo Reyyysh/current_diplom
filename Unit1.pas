@@ -80,6 +80,11 @@ type
     Button9: TButton;
     Edit6: TEdit;
     Button10: TButton;
+    Button11: TButton;
+    Button12: TButton;
+    Edit7: TEdit;
+    Memo1: TMemo;
+    Button13: TButton;
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure DBGrid2CellClick(Column: TColumn);
@@ -95,6 +100,10 @@ type
     procedure Button8Click(Sender: TObject);
     procedure Button9Click(Sender: TObject);
     procedure Button10Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+
 
 
 
@@ -105,6 +114,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+
   end;
 
 var
@@ -127,6 +137,326 @@ begin
      if not ADOQuery1.Locate('Викладач',Edit6.Text,[loCaseInsensitive, loPartialKey])then
     ShowMessage('Запись не найдена');
 
+end;
+
+
+function TextToTranslit(Text: string): string;
+var i:integer;
+begin
+ for i:=1 to Length(text)*3 do
+ begin
+   if copy(text,i,1)='а' then begin delete(text,i,1); insert('a',text,i); end;
+   if copy(text,i,1)='б' then begin delete(text,i,1); insert('b',text,i); end;
+   if copy(text,i,1)='в' then begin delete(text,i,1); insert('v',text,i); end;
+   if copy(text,i,1)='г' then begin delete(text,i,1); insert('g',text,i); end;
+   if copy(text,i,1)='д' then begin delete(text,i,1); insert('d',text,i); end;
+   if copy(text,i,1)='е' then begin delete(text,i,1); insert('e',text,i); end;
+   if copy(text,i,1)='ё' then begin delete(text,i,1); insert('e',text,i); end;
+   if copy(text,i,1)='ж' then begin delete(text,i,1); insert('zh',text,i); end;
+   if copy(text,i,1)='з' then begin delete(text,i,1); insert('z',text,i); end;
+   if copy(text,i,1)='и' then begin delete(text,i,1); insert('i',text,i); end;
+   if copy(text,i,1)='й' then begin delete(text,i,1); insert('y',text,i); end;
+   if copy(text,i,1)='к' then begin delete(text,i,1); insert('k',text,i); end;
+   if copy(text,i,1)='л' then begin delete(text,i,1); insert('l',text,i); end;
+   if copy(text,i,1)='м' then begin delete(text,i,1); insert('m',text,i); end;
+   if copy(text,i,1)='н' then begin delete(text,i,1); insert('n',text,i); end;
+   if copy(text,i,1)='о' then begin delete(text,i,1); insert('o',text,i); end;
+   if copy(text,i,1)='п' then begin delete(text,i,1); insert('p',text,i); end;
+   if copy(text,i,1)='р' then begin delete(text,i,1); insert('r',text,i); end;
+   if copy(text,i,1)='с' then begin delete(text,i,1); insert('s',text,i); end;
+   if copy(text,i,1)='т' then begin delete(text,i,1); insert('t',text,i); end;
+   if copy(text,i,1)='у' then begin delete(text,i,1); insert('u',text,i); end;
+   if copy(text,i,1)='ф' then begin delete(text,i,1); insert('f',text,i); end;
+   if copy(text,i,1)='х' then begin delete(text,i,1); insert('h',text,i); end;
+   if copy(text,i,1)='ц' then begin delete(text,i,1); insert('c',text,i); end;
+   if copy(text,i,1)='ч' then begin delete(text,i,1); insert('ch',text,i); end;
+   if copy(text,i,1)='ш' then begin delete(text,i,1); insert('sh',text,i); end;
+   if copy(text,i,1)='щ' then begin delete(text,i,1); insert('sch',text,i); end;
+   if copy(text,i,1)='ъ' then begin delete(text,i,1); insert('',text,i); end;
+   if copy(text,i,1)='ы' then begin delete(text,i,1); insert('yi',text,i); end;
+   if copy(text,i,1)='ь' then begin delete(text,i,1); insert('',text,i); end;
+   if copy(text,i,1)='э' then begin delete(text,i,1); insert('ye',text,i); end;
+   if copy(text,i,1)='ю' then begin delete(text,i,1); insert('yu',text,i); end;
+   if copy(text,i,1)='я' then begin delete(text,i,1); insert('ya',text,i); end;
+   if copy(text,i,1)='А' then begin delete(text,i,1); insert('A',text,i); end;
+   if copy(text,i,1)='Б' then begin delete(text,i,1); insert('B',text,i); end;
+   if copy(text,i,1)='В' then begin delete(text,i,1); insert('V',text,i); end;
+   if copy(text,i,1)='Г' then begin delete(text,i,1); insert('G',text,i); end;
+   if copy(text,i,1)='Д' then begin delete(text,i,1); insert('D',text,i); end;
+   if copy(text,i,1)='Е' then begin delete(text,i,1); insert('E',text,i); end;
+   if copy(text,i,1)='Ё' then begin delete(text,i,1); insert('E',text,i); end;
+   if copy(text,i,1)='Ж' then begin delete(text,i,1); insert('Zh',text,i); end;
+   if copy(text,i,1)='З' then begin delete(text,i,1); insert('Z',text,i); end;
+   if copy(text,i,1)='И' then begin delete(text,i,1); insert('I',text,i); end;
+   if copy(text,i,1)='Й' then begin delete(text,i,1); insert('Y',text,i); end;
+   if copy(text,i,1)='К' then begin delete(text,i,1); insert('K',text,i); end;
+   if copy(text,i,1)='Л' then begin delete(text,i,1); insert('L',text,i); end;
+   if copy(text,i,1)='М' then begin delete(text,i,1); insert('M',text,i); end;
+   if copy(text,i,1)='Н' then begin delete(text,i,1); insert('N',text,i); end;
+   if copy(text,i,1)='О' then begin delete(text,i,1); insert('O',text,i); end;
+   if copy(text,i,1)='П' then begin delete(text,i,1); insert('P',text,i); end;
+   if copy(text,i,1)='Р' then begin delete(text,i,1); insert('R',text,i); end;
+   if copy(text,i,1)='С' then begin delete(text,i,1); insert('S',text,i); end;
+   if copy(text,i,1)='Т' then begin delete(text,i,1); insert('T',text,i); end;
+   if copy(text,i,1)='У' then begin delete(text,i,1); insert('U',text,i); end;
+   if copy(text,i,1)='Ф' then begin delete(text,i,1); insert('F',text,i); end;
+   if copy(text,i,1)='Х' then begin delete(text,i,1); insert('H',text,i); end;
+   if copy(text,i,1)='Ц' then begin delete(text,i,1); insert('C',text,i); end;
+   if copy(text,i,1)='Ч' then begin delete(text,i,1); insert('Ch',text,i); end;
+   if copy(text,i,1)='Ш' then begin delete(text,i,1); insert('Sh',text,i); end;
+   if copy(text,i,1)='Щ' then begin delete(text,i,1); insert('Sch',text,i); end;
+   if copy(text,i,1)='Ъ' then begin delete(text,i,1); insert('',text,i); end;
+   if copy(text,i,1)='Ы' then begin delete(text,i,1); insert('Yi',text,i); end;
+   if copy(text,i,1)='Ь' then begin delete(text,i,1); insert('',text,i); end;
+   if copy(text,i,1)='Э' then begin delete(text,i,1); insert('Ye',text,i); end;
+   if copy(text,i,1)='Ю' then begin delete(text,i,1); insert('Yu',text,i); end;
+   if copy(text,i,1)='Я' then begin delete(text,i,1); insert('Ya',text,i); end;
+   if copy(text,i,1)=' ' then begin delete(text,i,1); insert('',text,i); end;
+   if copy(text,i,1)='-' then begin delete(text,i,1); insert('',text,i); end;
+ end;
+ result:=Text;
+end;
+
+procedure TForm1.Button11Click(Sender: TObject);
+var
+y,x1,x2,add:string;
+nom,i:integer;
+z:integer;
+rsp:string;
+begin
+
+
+  y:=excel.Selection.Address;
+ // excel.WorkBooks[1].WorkSheets[1].Range['C14:H28'].Select;
+ // y:='$C$14:$H$28';
+
+  //Нельзя выделять диапазоны с двойными цифрами и одинарными буквами
+
+  for i:=0 to Length(y) do  // Удаление $ из диапазона
+  begin
+  Delete(y,Pos('$',y),1);
+  end;
+
+  x1:=Copy(y,2,Pos(':',y)-2);   // Удаление лишних знаков из диапазона
+  x2:=Copy(y,Pos(':',y)+2,Length(y));
+
+
+   /////////////// Добавление
+   rsp:=TextToTranslit(excel.WorkBooks[1].WorkSheets[1].Range['G'+x1].Value)+'rsp';
+
+    ADOConnection1.Connected:=false;
+    ADOConnection5.Connected:=false;
+
+    //Создание таблицы групп
+   Tables:=CoTable.Create;
+   Tables.Name:=TextToTranslit(excel.WorkBooks[1].WorkSheets[1].Range['G'+x1].Value);
+
+   Tables.ParentCatalog:=DB;
+   DB.Tables.Append(Tables);
+   Columns:=CoColumn.Create;
+   with Columns do
+    begin
+     ParentCatalog:=DB;
+     Name:='id';
+     type_:=adInteger;
+     Properties['Autoincrement'].Value:=True;
+     Properties['Description'].Value:='Ключевое поле';
+    end;
+
+   Tables.Columns.Append(Columns,0,0);
+   Tables.Columns.Append('План Б',adInteger,0);
+   Tables.Columns.Append('План К',adInteger,0);
+   Tables.Columns.Append('Коментар',adVarWChar,255);
+   Tables.Columns.Append('Група',adVarWChar,255);
+   Tables.Columns.Append('Дисципліна',adVarWChar,255);
+   Tables.Columns.Append('Викладач',adVarWChar,255);
+
+
+   ADOConnection1.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+   ADOConnection1.LoginPrompt:=false;
+   ADOConnection1.Connected:=true;
+   ADOQuery1.Connection:=ADOConnection1;
+   ADOQuery1.SQL.Clear;
+   ADOQuery1.SQL.Add('SELECT * FROM '+TextToTranslit(excel.WorkBooks[1].WorkSheets[1].Range['G'+x1].Value));
+   ADOQuery1.Active:=true;
+   DataSource1.DataSet:=ADOQuery1;
+   DBGrid1.DataSource:=DataSource1;
+   DBNavigator1.DataSource:=DataSource1;
+   ////////////////////////////////////////////////////////
+
+
+    //Создание таблицы расписания
+   Tables:=CoTable.Create;
+   Tables.Name:=rsp;
+
+   Tables.ParentCatalog:=DB;
+   DB.Tables.Append(Tables);
+   Columns:=CoColumn.Create;
+   with Columns do
+    begin
+     ParentCatalog:=DB;
+     Name:='id';
+     type_:=adInteger;
+     Properties['Autoincrement'].Value:=True;
+     Properties['Description'].Value:='Ключевое поле';
+    end;
+
+   Tables.Columns.Append('ПнЧ1',adVarWChar,255);
+   Tables.Columns.Append('ПнЧ2',adVarWChar,255);
+   Tables.Columns.Append('ВтЧ1',adVarWChar,255);
+   Tables.Columns.Append('ВтЧ2',adVarWChar,255);
+   Tables.Columns.Append('СрЧ1',adVarWChar,255);
+   Tables.Columns.Append('СрЧ2',adVarWChar,255);
+   Tables.Columns.Append('ЧтЧ1',adVarWChar,255);
+   Tables.Columns.Append('ЧтЧ2',adVarWChar,255);
+   Tables.Columns.Append('ПтЧ1',adVarWChar,255);
+   Tables.Columns.Append('ПтЧ2',adVarWChar,255);
+   Tables.Columns.Append('СбЧ1',adVarWChar,255);
+   Tables.Columns.Append('СбЧ2',adVarWChar,255);
+   Tables.Columns.Append('НдЧ1',adVarWChar,255);
+   Tables.Columns.Append('НдЧ2',adVarWChar,255);
+
+   Tables.Columns.Append('ПнЗ1',adVarWChar,255);
+   Tables.Columns.Append('ПнЗ2',adVarWChar,255);
+   Tables.Columns.Append('ВтЗ1',adVarWChar,255);
+   Tables.Columns.Append('ВтЗ2',adVarWChar,255);
+   Tables.Columns.Append('СрЗ1',adVarWChar,255);
+   Tables.Columns.Append('СрЗ2',adVarWChar,255);
+   Tables.Columns.Append('ЧтЗ1',adVarWChar,255);
+   Tables.Columns.Append('ЧтЗ2',adVarWChar,255);
+   Tables.Columns.Append('ПтЗ1',adVarWChar,255);
+   Tables.Columns.Append('ПтЗ2',adVarWChar,255);
+
+
+   ADOConnection5.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+   ADOConnection5.LoginPrompt:=false;
+   ADOConnection5.Connected:=true;
+   ADOQuery5.Connection:=ADOConnection5;
+   ADOQuery5.SQL.Clear;
+   ADOQuery5.SQL.Add('SELECT * FROM '+rsp);
+   ADOQuery5.Active:=true;
+   DataSource5.DataSet:=ADOQuery5;
+   DBGrid5.DataSource:=DataSource5;
+   //DBNavigator1.DataSource:=DataSource1;
+
+  ADOQuery2.Insert;
+  ADOQuery2.FieldByName('Група').AsString := excel.WorkBooks[1].WorkSheets[1].Range['G'+x1].Value;
+  ADOQuery2.FieldByName('IDГруп').AsString := TextToTranslit(excel.WorkBooks[1].WorkSheets[1].Range['G'+x1].Value);
+  ADOQuery2.Post;
+
+  DBGrid2.Columns[0].Width := 0; //ширина полей
+  DBGrid2.Columns[1].Width := 100; //ширина полей
+
+ ///////////////////////////////////
+
+
+ {y:=excel.Selection.Address;
+ // excel.WorkBooks[1].WorkSheets[1].Range['C14:H28'].Select;
+ // y:='$C$14:$H$28';
+
+  //Нельзя выделять диапазоны с двойными цифрами и одинарными буквами
+
+  for i:=0 to Length(y) do  // Удаление $ из диапазона
+  begin
+  Delete(y,Pos('$',y),1);
+  end;
+
+  x1:=Copy(y,2,Pos(':',y)-2);   // Удаление лишних знаков из диапазона
+  x2:=Copy(y,Pos(':',y)+2,Length(y));
+     }
+
+   // x2:=inttostr(strtoint(x2)-10);
+
+ {     While (excel.WorkBooks[1].WorkSheets[1].Range['C'+x1].Value)='' Do
+    begin
+
+    x1:=inttostr(strtoint(x1)+1);
+
+    end;  }
+
+
+
+
+
+    x1:=inttostr(strtoint(x1)+3);
+
+
+  nom:=strtoint(x2)-strtoint(x1);  // Количество записей
+    for i:=0 to nom  do
+    begin
+    add:=inttostr(strtoint(x1)+i);  // Номер елемента
+  ADOQuery1.Insert;
+  ADOQuery1.FieldByName('План Б').Value :=excel.WorkBooks[1].WorkSheets[1].Range['C'+add].Value;
+  ADOQuery1.FieldByName('План К').Value :=excel.WorkBooks[1].WorkSheets[1].Range['D'+add].Value;
+  ADOQuery1.FieldByName('Коментар').Value :=excel.WorkBooks[1].WorkSheets[1].Range['E'+add].Value;
+  ADOQuery1.FieldByName('Група').Value :=excel.WorkBooks[1].WorkSheets[1].Range['F'+add].Value;
+  ADOQuery1.FieldByName('Дисципліна').Value :=excel.WorkBooks[1].WorkSheets[1].Range['G'+add].Value;
+  ADOQuery1.FieldByName('Викладач').Value :=excel.WorkBooks[1].WorkSheets[1].Range['H'+add].Value;
+  ADOQuery1.Post;
+
+    end;
+
+end;
+
+procedure TForm1.Button12Click(Sender: TObject);
+var
+y,x1,x2,add:string;
+nom,i,y1:integer;
+begin
+
+ { y:=excel.Selection.Address;
+ // excel.WorkBooks[1].WorkSheets[1].Range['C14:H28'].Select;
+ // y:='$C$14:$H$28';
+
+  //Нельзя выделять диапазоны с двойными цифрами и одинарными буквами
+
+  for i:=0 to Length(y) do  // Удаление $ из диапазона
+  begin
+  Delete(y,Pos('$',y),1);
+  end;
+
+  x1:=Copy(y,2,Pos(':',y)-2);   // Удаление лишних знаков из диапазона
+  x2:=Copy(y,Pos(':',y)+2,Length(y));
+edit7.Text:=TextToTranslit(excel.WorkBooks[1].WorkSheets[1].Range['G'+x1].Value);
+
+      x1:=inttostr(strtoint(x1)+1);
+
+     { While (excel.WorkBooks[1].WorkSheets[1].Range['C'+x1].Value)='' Do
+    begin
+
+    x1:=inttostr(strtoint(x1)+1);
+
+
+    end; }
+   {    y1:=0;
+    for i:=0 to 20 do
+      begin
+         if (excel.WorkBooks[1].WorkSheets[1].Range['C'+x1].Value)<>'' then
+         begin
+                    x1:=inttostr(strtoint(x1)+1) ;
+           y1:=y1+1;
+         end
+
+           else
+           break;
+
+      end;
+
+    edit7.Text:=inttostr(y1);  }
+      y1:=0;
+    if (excel.WorkBooks[1].WorkSheets[1].Range['C6'].Value)=none then
+    y1:=1
+    else
+    y1:=2;
+
+    edit7.Text:=inttostr(y1);
+
+
+end;
+
+procedure TForm1.Button13Click(Sender: TObject);
+begin
+memo1.Text:=TextToTranslit(Memo1.Text);
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);

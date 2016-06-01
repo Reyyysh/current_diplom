@@ -241,6 +241,32 @@ object Form1: TForm1
       TabOrder = 5
       OnClick = Button10Click
     end
+    object Button11: TButton
+      Left = 6
+      Top = 470
+      Width = 172
+      Height = 25
+      Caption = #1053#1086#1074#1086#1077' '#1076#1086#1073#1072#1074#1083#1077#1085#1080#1077
+      TabOrder = 6
+      OnClick = Button11Click
+    end
+    object Button12: TButton
+      Left = 23
+      Top = 439
+      Width = 75
+      Height = 25
+      Caption = 'test'
+      TabOrder = 7
+      OnClick = Button12Click
+    end
+    object Edit7: TEdit
+      Left = 104
+      Top = 448
+      Width = 121
+      Height = 21
+      TabOrder = 8
+      Text = 'Edit7'
+    end
   end
   object GroupBox1: TGroupBox
     Left = 296
@@ -452,6 +478,24 @@ object Form1: TForm1
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
     end
+  end
+  object Memo1: TMemo
+    Left = 8
+    Top = 336
+    Width = 185
+    Height = 89
+    Lines.Strings = (
+      'Memo1')
+    TabOrder = 10
+  end
+  object Button13: TButton
+    Left = 24
+    Top = 440
+    Width = 75
+    Height = 25
+    Caption = 'Button13'
+    TabOrder = 11
+    OnClick = Button13Click
   end
   object ADOConnection1: TADOConnection
     Left = 576
