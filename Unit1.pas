@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ExtCtrls, Vcl.DBCtrls,
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Data.Win.ADODB, ADOX_TLB, Vcl.Mask,
-  Vcl.ToolWin, Vcl.ComCtrls, Vcl.Menus, ComObj;
+  Vcl.ToolWin, Vcl.ComCtrls, Vcl.Menus, ComObj, Vcl.Buttons;
 
 type
   TForm1 = class(TForm)
@@ -65,6 +65,29 @@ type
     ADOQuery7: TADOQuery;
     Panel2: TPanel;
     DBNavigator7: TDBNavigator;
+    TabSheet5: TTabSheet;
+    PageControl2: TPageControl;
+    TabSheet6: TTabSheet;
+    TabSheet7: TTabSheet;
+    SpeedButton1: TSpeedButton;
+    DBGrid8: TDBGrid;
+    DateTimePicker3: TDateTimePicker;
+    Button10: TButton;
+    Edit4: TEdit;
+    DBGrid9: TDBGrid;
+    DBLookupComboBox1: TDBLookupComboBox;
+    ListBox1: TListBox;
+    ADOConnection9: TADOConnection;
+    DataSource9: TDataSource;
+    ADOQuery9: TADOQuery;
+    DBNavigator9: TDBNavigator;
+    Panel3: TPanel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Button11: TButton;
+    DBListBox1: TDBListBox;
     procedure Button5Click(Sender: TObject);
     procedure Form1Destroy(Sender: TObject);
     procedure Form1Create(Sender: TObject);
@@ -78,6 +101,12 @@ type
     procedure Button8Click(Sender: TObject);
     procedure DBGrid6CellClick(Column: TColumn);
     procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure DBGrid8DblClick(Sender: TObject);
+    procedure ListBox1DblClick(Sender: TObject);
+    procedure DBGrid8CellClick(Column: TColumn);
+    procedure DateTimePicker3CloseUp(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -93,6 +122,79 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.Button10Click(Sender: TObject);
+var
+  Result,test,all:string;
+  i,y:integer;
+begin
+
+
+ {case DayOfWeek(DateTimePicker3.Date) of
+  1: Result := 'Воскресенье';
+  2: Result := 'Понедельник';
+  3: Result := 'Вторник';
+  4: Result := 'Среда';
+  5: Result := 'Четверг';
+  6: Result := 'Пятница';
+  7: Result := 'Суббота';
+  end;
+  Edit4.Text:=Result;  }
+
+
+   for i:=0 to ListBox1.Items.Count-1 do
+   begin
+   test:=ListBox1.Items[i];
+   all:=all+ListBox1.Items[i]+',';
+
+    for y:=0 to Length(test) do  // Удаление "-" из диапазона
+  begin
+    Delete(test,Pos('-',test),1);
+  end;
+
+  ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.Add('SELECT * FROM '+test+'subb');
+  ADOQuery9.Active:=true;
+
+    ADOQuery9.Insert;
+    ADOQuery9.FieldByName('Група').Value:=ListBox1.Items[i];
+    ADOQuery9.FieldByName('Дата').Value:=DateToStr(DateTimePicker3.Date);
+    ADOQuery9.FieldByName('Комент').Value:=edit4.text;
+    ADOQuery9.Post;
+
+   end;
+
+   ShowMessage('Для груп: '+all+' була додана робітнича субота '+DateToStr(DateTimePicker3.Date));
+   ListBox1.Clear;
+
+
+
+
+
+  DBGrid9.Columns[0].Width := 80; //ширина полей
+  DBGrid9.Columns[1].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 80; //ширина полей
+
+
+end;
+
+procedure TForm1.Button11Click(Sender: TObject);
+var
+kol,i:integer;
+begin
+  kol:=ADOQuery1.RecordCount;  
+
+   for i:=0 to kol-1 do
+   begin
+  //  DBGrid1.SelectedIndex:=3;
+  DBGrid8.Fields[1].Value;
+ // ListBox1.Items.add(DBGrid1.);
+
+
+   end;
+
+
+end;
 
 procedure TForm1.Button1Click(Sender: TObject); //Кнопка открытия Exel файла
 begin
@@ -209,15 +311,17 @@ end;
 procedure TForm1.Button5Click(Sender: TObject); //Добавление группы в список
 var
   i:integer;
-  rsp,test,graf:string;
+  rsp,test,graf,subb:string;
 begin
   test:=Edit1.Text;
-  for i:=0 to Length(test) do  // Удаление $ из диапазона
+  for i:=0 to Length(test) do  // Удаление - из диапазона
   begin
     Delete(test,Pos('-',test),1);
   end;
   rsp:=test+'rsp';
   graf:=test+'graf';
+  subb:=test+'subb';
+
 
   ADOConnection2.Connected:=false;
   ADOConnection3.Connected:=false;
@@ -348,7 +452,6 @@ begin
   DBGrid7.DataSource:=DataSource7;
   DBNavigator7.DataSource:=DataSource7;
 
-  //Создание таблицы расписания
 
 
   DBGrid7.Columns[0].Width := 0; //ширина полей
@@ -356,6 +459,54 @@ begin
   DBGrid7.Columns[2].Width := 80; //ширина полей
   DBGrid7.Columns[3].Width := 80; //ширина полей
   DBGrid7.Columns[4].Width := 80; //ширина полей
+
+
+
+
+  // Создание таблицы суббботы
+
+  ADOConnection9.Connected:=false;
+
+  Tables:=CoTable.Create;
+  Tables.Name:=subb;
+
+  Tables.ParentCatalog:=DB;
+  DB.Tables.Append(Tables);
+  Columns:=CoColumn.Create;
+  with Columns do
+  begin
+    ParentCatalog:=DB;
+    Name:='id';
+    type_:=adInteger;
+    Properties['Autoincrement'].Value:=True;
+    Properties['Description'].Value:='Ключевое поле';
+  end;
+
+  Tables.Columns.Append(Columns,0,0);
+  Tables.Columns.Append('Група',adVarWChar,255);
+  Tables.Columns.Append('Дата',adVarWChar,255);
+  Tables.Columns.Append('Комент',adVarWChar,255);
+
+  ADOConnection9.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+  ADOConnection9.LoginPrompt:=false;
+  ADOConnection9.Connected:=true;
+  ADOQuery9.Connection:=ADOConnection9;
+  ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.Add('SELECT * FROM '+subb);
+  ADOQuery9.Active:=true;
+  DataSource9.DataSet:=ADOQuery9;
+  DBGrid9.DataSource:=DataSource9;
+  DBNavigator9.DataSource:=DataSource9;
+
+
+
+
+  DBGrid9.Columns[0].Width := 80; //ширина полей
+  DBGrid9.Columns[1].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 80; //ширина полей
+
+
+  //////////////////////////////////////////////////////////////////
 
 
 
@@ -370,6 +521,11 @@ begin
   //Таблица с группи на вкладке графика
   DBGrid6.Columns[0].Width := 0; //ширина полей
   DBGrid6.Columns[1].Width := 80; //ширина полей
+
+
+    //Таблица с группи на вкладке суббота
+  DBGrid8.Columns[0].Width := 0; //ширина полей
+  DBGrid8.Columns[1].Width := 80; //ширина полей
 
   DBGrid2.Columns[0].Width := 30; //ширина полей
   DBGrid2.Columns[1].Width := 40; //ширина полей
@@ -413,7 +569,7 @@ end;
 
 procedure TForm1.Button8Click(Sender: TObject);
 var
-  rsp,test,graf:string;
+  rsp,test,graf,subb:string;
   y,x1,x2,add:string;
   nom,i:integer;
   z:integer;
@@ -444,6 +600,7 @@ begin
   end;
   rsp:=test+'rsp';
   graf:=test+'graf';
+  subb:=test+'subb';
 
   ADOConnection2.Connected:=false;
   ADOConnection3.Connected:=false;
@@ -582,7 +739,50 @@ begin
   DBGrid7.Columns[3].Width := 80; //ширина полей
   DBGrid7.Columns[4].Width := 80; //ширина полей
 
+  // Создание таблицы суббботы
 
+  ADOConnection9.Connected:=false;
+
+  Tables:=CoTable.Create;
+  Tables.Name:=subb;
+
+  Tables.ParentCatalog:=DB;
+  DB.Tables.Append(Tables);
+  Columns:=CoColumn.Create;
+  with Columns do
+  begin
+    ParentCatalog:=DB;
+    Name:='id';
+    type_:=adInteger;
+    Properties['Autoincrement'].Value:=True;
+    Properties['Description'].Value:='Ключевое поле';
+  end;
+
+  Tables.Columns.Append(Columns,0,0);
+  Tables.Columns.Append('Група',adVarWChar,255);
+  Tables.Columns.Append('Дата',adVarWChar,255);
+  Tables.Columns.Append('Комент',adVarWChar,255);
+
+  ADOConnection9.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+  ADOConnection9.LoginPrompt:=false;
+  ADOConnection9.Connected:=true;
+  ADOQuery9.Connection:=ADOConnection9;
+  ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.Add('SELECT * FROM '+subb);
+  ADOQuery9.Active:=true;
+  DataSource9.DataSet:=ADOQuery9;
+  DBGrid9.DataSource:=DataSource9;
+  DBNavigator9.DataSource:=DataSource9;
+
+
+
+
+  DBGrid9.Columns[0].Width := 80; //ширина полей
+  DBGrid9.Columns[1].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 80; //ширина полей
+
+
+  //////////////////////////////////////////////////////////////////
 
 
   ADOQuery1.Insert;
@@ -596,6 +796,10 @@ begin
   // Табл с грп из вкладки график
   DBGrid6.Columns[0].Width := 0; //ширина полей
   DBGrid6.Columns[1].Width := 80; //ширина полей
+
+    // Табл с грп из вкладки суббота
+  DBGrid8.Columns[0].Width := 0; //ширина полей
+  DBGrid8.Columns[1].Width := 80; //ширина полей
 
   DBGrid2.Columns[0].Width := 30; //ширина полей
   DBGrid2.Columns[1].Width := 40; //ширина полей
@@ -642,6 +846,12 @@ begin
     ADOQuery7.FieldByName('Група').Value:=DBGrid6.Fields[1].Value;
     ADOQuery7.Post;
 
+end;
+
+procedure TForm1.DateTimePicker3CloseUp(Sender: TObject);
+begin
+  if DayOfWeek(DateTimePicker3.Date)<>7 then
+  ShowMessage('Виберіть суботу!');
 end;
 
 procedure TForm1.DBGrid1CellClick(Column: TColumn); //Выбор группы из списка для просмотра расписания
@@ -695,6 +905,59 @@ begin
 
 end;
 
+procedure TForm1.DBGrid8CellClick(Column: TColumn);
+var
+  i: integer;
+begin
+  DBGrid8.DataSource.DataSet.RecNo;
+  DBGrid8.Fields[0].Value;
+
+  Panel3.Caption:='Група '+DBGrid8.Fields[1].Value;
+
+  ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.Add('SELECT * FROM '+DBGrid8.Fields[0].Value+'subb');
+  ADOQuery9.Active:=true;
+
+
+  DBGrid9.Columns[0].Width := 80; //ширина полей
+  DBGrid9.Columns[1].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 80; //ширина полей
+
+
+end;
+
+procedure TForm1.DBGrid8DblClick(Sender: TObject);
+var
+  i,check:integer;
+begin
+//ListBox1.Items.i:=DBGrid8.Fields[0].Value  ;
+
+if ListBox1.Items.Count=0 then
+ListBox1.Items.add(DBGrid8.Fields[1].Value);
+
+
+   check:=0;
+  for i:=0 to ListBox1.Items.Count-1 do
+     begin
+   if DBGrid8.Fields[1].Value=ListBox1.Items[i]  then
+   begin
+    check:=1;
+    break;
+
+
+   end
+   else
+    check:=0;
+
+ 
+     end;
+     
+    if check=0 then  ListBox1.Items.add(DBGrid8.Fields[1].Value);
+
+
+
+end;
+
 procedure TForm1.Form1Create(Sender: TObject); //Создание и чтение файлов при запуске
 var
   i:integer;
@@ -721,6 +984,9 @@ begin
     DBGrid6.DataSource:=DataSource1;
     DBGrid6.ReadOnly:=true;
 
+    DBGrid8.DataSource:=DataSource1;
+    DBGrid8.ReadOnly:=true;
+
 
 
 
@@ -733,11 +999,17 @@ begin
     DBGrid6.DataSource.DataSet.RecNo;
     DBGrid6.Fields[0].Value;
 
+    DBGrid8.DataSource.DataSet.RecNo;
+    DBGrid8.Fields[0].Value;
+
     DBGrid1.Columns[0].Width := 0; //ширина полей
     DBGrid1.Columns[1].Width := 80; //ширина полей
 
     DBGrid6.Columns[0].Width := 0; //ширина полей
     DBGrid6.Columns[1].Width := 80; //ширина полей
+
+    DBGrid8.Columns[0].Width := 0; //ширина полей
+    DBGrid8.Columns[1].Width := 80; //ширина полей
     //Расписание группы
     Panel1.Caption:='Група '+DBGrid1.Fields[1].Value;
     ADOConnection2.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
@@ -809,6 +1081,25 @@ begin
 
 
 
+    ADOConnection9.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+    ADOConnection9.LoginPrompt:=false;
+    ADOConnection9.Connected:=true;
+    ADOQuery9.Connection:=ADOConnection9;
+    ADOQuery9.SQL.Clear;
+    ADOQuery9.SQL.Add('SELECT * FROM '+DBGrid8.Fields[0].Value+'subb');
+    ADOQuery9.Active:=true;
+    DataSource9.DataSet:=ADOQuery9;
+    DBGrid9.DataSource:=DataSource9;
+    DBNavigator9.DataSource:=DataSource9;
+
+    DBGrid9.Columns[0].Width := 80; //ширина полей
+    DBGrid9.Columns[1].Width := 80; //ширина полей
+    DBGrid9.Columns[2].Width := 80; //ширина полей
+
+
+
+
+
 
   end
   else
@@ -847,6 +1138,9 @@ begin
 
     DBGrid6.DataSource:=DataSource1;
     DBGrid6.ReadOnly:=true;
+
+    DBGrid8.DataSource:=DataSource1;
+    DBGrid8.ReadOnly:=true;
 
     DBNavigator1.DataSource:=DataSource1;
     //Создание таблицы для преподавателей
@@ -944,6 +1238,11 @@ end;
 procedure TForm1.Form1Destroy(Sender: TObject); //Закрытие файла при выходе из программы
 begin
   excel:=Unassigned;
+end;
+
+procedure TForm1.ListBox1DblClick(Sender: TObject);
+begin
+  ListBox1.Items.Delete(ListBox1.ItemIndex);
 end;
 
 end.

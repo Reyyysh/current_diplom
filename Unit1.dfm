@@ -18,12 +18,18 @@ object Form1: TForm1
   OnDestroy = Form1Destroy
   PixelsPerInch = 96
   TextHeight = 13
+  object SpeedButton1: TSpeedButton
+    Left = 32
+    Top = 8
+    Width = 23
+    Height = 22
+  end
   object PageControl1: TPageControl
     Left = 0
     Top = 0
     Width = 887
     Height = 561
-    ActivePage = TabSheet1
+    ActivePage = TabSheet5
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1043#1088#1091#1087#1080
@@ -334,6 +340,13 @@ object Form1: TForm1
         Time = 42525.559036608790000000
         TabOrder = 8
       end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 624
+        Top = 200
+        Width = 145
+        Height = 21
+        TabOrder = 9
+      end
     end
     object TabSheet4: TTabSheet
       Caption = #1056#1086#1079#1082#1083#1072#1076
@@ -342,6 +355,150 @@ object Form1: TForm1
       ExplicitWidth = 433
       ExplicitHeight = 197
     end
+    object TabSheet5: TTabSheet
+      Caption = #1047#1072#1084#1077#1085#1099
+      ImageIndex = 4
+      object PageControl2: TPageControl
+        Left = 0
+        Top = 0
+        Width = 793
+        Height = 513
+        ActivePage = TabSheet6
+        TabOrder = 0
+        object TabSheet6: TTabSheet
+          Caption = #1057#1091#1073#1086#1090#1080
+          ExplicitHeight = 389
+          object Label5: TLabel
+            Left = 24
+            Top = 3
+            Width = 138
+            Height = 13
+            Caption = #1042#1080#1073#1077#1088#1110#1090#1100' '#1089#1091#1073#1086#1090#1091' '#1076#1083#1103' '#1079#1072#1084#1110#1085#1080
+          end
+          object Label6: TLabel
+            Left = 16
+            Top = 69
+            Width = 87
+            Height = 13
+            Caption = #1055#1077#1088#1077#1083#1110#1082' '#1091#1089#1110#1093' '#1075#1088#1091#1087
+          end
+          object Label7: TLabel
+            Left = 135
+            Top = 69
+            Width = 139
+            Height = 13
+            Caption = #1043#1088#1091#1087#1080' '#1076#1083#1103' '#1076#1086#1076#1072#1074#1072#1085#1085#1103' '#1079#1072#1084#1110#1085
+          end
+          object Label8: TLabel
+            Left = 264
+            Top = 0
+            Width = 49
+            Height = 13
+            Caption = #1050#1086#1084#1077#1085#1090#1072#1088
+          end
+          object DBGrid8: TDBGrid
+            Left = 3
+            Top = 88
+            Width = 126
+            Height = 370
+            TabOrder = 0
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+            OnCellClick = DBGrid8CellClick
+            OnDblClick = DBGrid8DblClick
+          end
+          object DateTimePicker3: TDateTimePicker
+            Left = 3
+            Top = 21
+            Width = 186
+            Height = 21
+            Date = 42525.805654305560000000
+            Time = 42525.805654305560000000
+            TabOrder = 1
+            OnCloseUp = DateTimePicker3CloseUp
+          end
+          object Edit4: TEdit
+            Left = 195
+            Top = 19
+            Width = 186
+            Height = 21
+            TabOrder = 2
+            Text = 'Edit4'
+          end
+          object Button10: TButton
+            Left = 387
+            Top = 10
+            Width = 135
+            Height = 39
+            Caption = #1044#1086#1076#1072#1090#1080
+            TabOrder = 3
+            OnClick = Button10Click
+          end
+          object DBGrid9: TDBGrid
+            Left = 280
+            Top = 88
+            Width = 436
+            Height = 297
+            TabOrder = 4
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+          end
+          object ListBox1: TListBox
+            Left = 135
+            Top = 88
+            Width = 139
+            Height = 339
+            ItemHeight = 13
+            TabOrder = 5
+            OnDblClick = ListBox1DblClick
+          end
+          object DBNavigator9: TDBNavigator
+            Left = 328
+            Top = 57
+            Width = 240
+            Height = 25
+            TabOrder = 6
+          end
+          object Panel3: TPanel
+            Left = 567
+            Top = 41
+            Width = 185
+            Height = 41
+            Caption = 'Panel3'
+            TabOrder = 7
+          end
+          object Button11: TButton
+            Left = 135
+            Top = 433
+            Width = 139
+            Height = 25
+            Caption = #1044#1086#1076#1072#1090#1080' '#1091#1089#1110' '#1075#1088#1091#1087#1080
+            TabOrder = 8
+            OnClick = Button11Click
+          end
+        end
+        object TabSheet7: TTabSheet
+          Caption = #1044#1077#1085#1100' '#1085#1072' '#1076#1077#1085#1100
+          ImageIndex = 1
+          ExplicitLeft = 0
+          ExplicitHeight = 389
+        end
+      end
+    end
+  end
+  object DBListBox1: TDBListBox
+    Left = 304
+    Top = 400
+    Width = 121
+    Height = 97
+    ItemHeight = 13
+    TabOrder = 1
   end
   object ADOConnection1: TADOConnection
     Left = 616
@@ -413,16 +570,29 @@ object Form1: TForm1
     Top = 32
   end
   object ADOConnection7: TADOConnection
-    Left = 748
-    Top = 40
+    Left = 756
+    Top = 32
   end
   object DataSource7: TDataSource
     Left = 756
-    Top = 88
+    Top = 72
   end
   object ADOQuery7: TADOQuery
     Parameters = <>
     Left = 756
-    Top = 136
+    Top = 120
+  end
+  object ADOConnection9: TADOConnection
+    Left = 760
+    Top = 32
+  end
+  object DataSource9: TDataSource
+    Left = 760
+    Top = 72
+  end
+  object ADOQuery9: TADOQuery
+    Parameters = <>
+    Left = 760
+    Top = 120
   end
 end
