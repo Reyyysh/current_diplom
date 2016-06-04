@@ -3,9 +3,6 @@ unit Unit1;
 interface
 
 uses
-  {Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.ComCtrls, Vcl.StdCtrls, Data.Win.ADODB, Vcl.ExtCtrls, Vcl.DBCtrls;}
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ExtCtrls, Vcl.DBCtrls,
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Data.Win.ADODB, ADOX_TLB, Vcl.Mask,
@@ -46,12 +43,28 @@ type
     Panel1: TPanel;
     Button7: TButton;
     Button8: TButton;
-    OpenDialog1: TOpenDialog;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
     TabSheet4: TTabSheet;
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit3: TEdit;
+    OpenDialog1: TOpenDialog;
+    ComboBox1: TComboBox;
+    Label3: TLabel;
+    Label4: TLabel;
+    DBGrid6: TDBGrid;
+    Button9: TButton;
+    DBGrid7: TDBGrid;
+    ADOConnection7: TADOConnection;
+    DataSource7: TDataSource;
+    ADOQuery7: TADOQuery;
+    Panel2: TPanel;
+    DBNavigator7: TDBNavigator;
     procedure Button5Click(Sender: TObject);
     procedure Form1Destroy(Sender: TObject);
     procedure Form1Create(Sender: TObject);
@@ -63,6 +76,8 @@ type
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
+    procedure DBGrid6CellClick(Column: TColumn);
+    procedure Button9Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -85,83 +100,6 @@ begin
   if not OpenDialog1.Execute then exit;
   excel.WorkBooks.Open(OpenDialog1.FileName);
   excel.Visible:=true;
-end;
-
-function TextToTranslit(Text: string): string;
-var i:integer;
-begin
- for i:=1 to Length(text)*3 do
- begin
-   if copy(text,i,1)='а' then begin delete(text,i,1); insert('a',text,i); end;
-   if copy(text,i,1)='б' then begin delete(text,i,1); insert('b',text,i); end;
-   if copy(text,i,1)='в' then begin delete(text,i,1); insert('v',text,i); end;
-   if copy(text,i,1)='г' then begin delete(text,i,1); insert('g',text,i); end;
-   if copy(text,i,1)='д' then begin delete(text,i,1); insert('d',text,i); end;
-   if copy(text,i,1)='е' then begin delete(text,i,1); insert('e',text,i); end;
-   if copy(text,i,1)='ё' then begin delete(text,i,1); insert('e',text,i); end;
-   if copy(text,i,1)='ж' then begin delete(text,i,1); insert('zh',text,i); end;
-   if copy(text,i,1)='з' then begin delete(text,i,1); insert('z',text,i); end;
-   if copy(text,i,1)='и' then begin delete(text,i,1); insert('i',text,i); end;
-   if copy(text,i,1)='й' then begin delete(text,i,1); insert('y',text,i); end;
-   if copy(text,i,1)='к' then begin delete(text,i,1); insert('k',text,i); end;
-   if copy(text,i,1)='л' then begin delete(text,i,1); insert('l',text,i); end;
-   if copy(text,i,1)='м' then begin delete(text,i,1); insert('m',text,i); end;
-   if copy(text,i,1)='н' then begin delete(text,i,1); insert('n',text,i); end;
-   if copy(text,i,1)='о' then begin delete(text,i,1); insert('o',text,i); end;
-   if copy(text,i,1)='п' then begin delete(text,i,1); insert('p',text,i); end;
-   if copy(text,i,1)='р' then begin delete(text,i,1); insert('r',text,i); end;
-   if copy(text,i,1)='с' then begin delete(text,i,1); insert('s',text,i); end;
-   if copy(text,i,1)='т' then begin delete(text,i,1); insert('t',text,i); end;
-   if copy(text,i,1)='у' then begin delete(text,i,1); insert('u',text,i); end;
-   if copy(text,i,1)='ф' then begin delete(text,i,1); insert('f',text,i); end;
-   if copy(text,i,1)='х' then begin delete(text,i,1); insert('h',text,i); end;
-   if copy(text,i,1)='ц' then begin delete(text,i,1); insert('c',text,i); end;
-   if copy(text,i,1)='ч' then begin delete(text,i,1); insert('ch',text,i); end;
-   if copy(text,i,1)='ш' then begin delete(text,i,1); insert('sh',text,i); end;
-   if copy(text,i,1)='щ' then begin delete(text,i,1); insert('sch',text,i); end;
-   if copy(text,i,1)='ъ' then begin delete(text,i,1); insert('',text,i); end;
-   if copy(text,i,1)='ы' then begin delete(text,i,1); insert('yi',text,i); end;
-   if copy(text,i,1)='ь' then begin delete(text,i,1); insert('',text,i); end;
-   if copy(text,i,1)='э' then begin delete(text,i,1); insert('ye',text,i); end;
-   if copy(text,i,1)='ю' then begin delete(text,i,1); insert('yu',text,i); end;
-   if copy(text,i,1)='я' then begin delete(text,i,1); insert('ya',text,i); end;
-   if copy(text,i,1)='А' then begin delete(text,i,1); insert('A',text,i); end;
-   if copy(text,i,1)='Б' then begin delete(text,i,1); insert('B',text,i); end;
-   if copy(text,i,1)='В' then begin delete(text,i,1); insert('V',text,i); end;
-   if copy(text,i,1)='Г' then begin delete(text,i,1); insert('G',text,i); end;
-   if copy(text,i,1)='Д' then begin delete(text,i,1); insert('D',text,i); end;
-   if copy(text,i,1)='Е' then begin delete(text,i,1); insert('E',text,i); end;
-   if copy(text,i,1)='Ё' then begin delete(text,i,1); insert('E',text,i); end;
-   if copy(text,i,1)='Ж' then begin delete(text,i,1); insert('Zh',text,i); end;
-   if copy(text,i,1)='З' then begin delete(text,i,1); insert('Z',text,i); end;
-   if copy(text,i,1)='И' then begin delete(text,i,1); insert('I',text,i); end;
-   if copy(text,i,1)='Й' then begin delete(text,i,1); insert('Y',text,i); end;
-   if copy(text,i,1)='К' then begin delete(text,i,1); insert('K',text,i); end;
-   if copy(text,i,1)='Л' then begin delete(text,i,1); insert('L',text,i); end;
-   if copy(text,i,1)='М' then begin delete(text,i,1); insert('M',text,i); end;
-   if copy(text,i,1)='Н' then begin delete(text,i,1); insert('N',text,i); end;
-   if copy(text,i,1)='О' then begin delete(text,i,1); insert('O',text,i); end;
-   if copy(text,i,1)='П' then begin delete(text,i,1); insert('P',text,i); end;
-   if copy(text,i,1)='Р' then begin delete(text,i,1); insert('R',text,i); end;
-   if copy(text,i,1)='С' then begin delete(text,i,1); insert('S',text,i); end;
-   if copy(text,i,1)='Т' then begin delete(text,i,1); insert('T',text,i); end;
-   if copy(text,i,1)='У' then begin delete(text,i,1); insert('U',text,i); end;
-   if copy(text,i,1)='Ф' then begin delete(text,i,1); insert('F',text,i); end;
-   if copy(text,i,1)='Х' then begin delete(text,i,1); insert('H',text,i); end;
-   if copy(text,i,1)='Ц' then begin delete(text,i,1); insert('C',text,i); end;
-   if copy(text,i,1)='Ч' then begin delete(text,i,1); insert('Ch',text,i); end;
-   if copy(text,i,1)='Ш' then begin delete(text,i,1); insert('Sh',text,i); end;
-   if copy(text,i,1)='Щ' then begin delete(text,i,1); insert('Sch',text,i); end;
-   if copy(text,i,1)='Ъ' then begin delete(text,i,1); insert('',text,i); end;
-   if copy(text,i,1)='Ы' then begin delete(text,i,1); insert('Yi',text,i); end;
-   if copy(text,i,1)='Ь' then begin delete(text,i,1); insert('',text,i); end;
-   if copy(text,i,1)='Э' then begin delete(text,i,1); insert('Ye',text,i); end;
-   if copy(text,i,1)='Ю' then begin delete(text,i,1); insert('Yu',text,i); end;
-   if copy(text,i,1)='Я' then begin delete(text,i,1); insert('Ya',text,i); end;
-   if copy(text,i,1)=' ' then begin delete(text,i,1); insert('',text,i); end;
-   if copy(text,i,1)='-' then begin delete(text,i,1); insert('',text,i); end;
- end;
- result:=Text;
 end;
 
 procedure TForm1.Button2Click(Sender: TObject); //Кнопка добавления расписания группы
@@ -271,7 +209,7 @@ end;
 procedure TForm1.Button5Click(Sender: TObject); //Добавление группы в список
 var
   i:integer;
-  rsp,test:string;
+  rsp,test,graf:string;
 begin
   test:=Edit1.Text;
   for i:=0 to Length(test) do  // Удаление $ из диапазона
@@ -279,6 +217,7 @@ begin
     Delete(test,Pos('-',test),1);
   end;
   rsp:=test+'rsp';
+  graf:=test+'graf';
 
   ADOConnection2.Connected:=false;
   ADOConnection3.Connected:=false;
@@ -370,6 +309,56 @@ begin
   DBGrid3.DataSource:=DataSource3;
   //DBNavigator1.DataSource:=DataSource1;
 
+
+  // Создание таблицы графика
+
+  ADOConnection7.Connected:=false;
+
+  //Создание таблицы групп
+  Tables:=CoTable.Create;
+  Tables.Name:=graf;
+
+  Tables.ParentCatalog:=DB;
+  DB.Tables.Append(Tables);
+  Columns:=CoColumn.Create;
+  with Columns do
+  begin
+    ParentCatalog:=DB;
+    Name:='id';
+    type_:=adInteger;
+    Properties['Autoincrement'].Value:=True;
+    Properties['Description'].Value:='Ключевое поле';
+  end;
+
+  Tables.Columns.Append(Columns,0,0);
+  Tables.Columns.Append('Поч дата',adVarWChar,255);
+  Tables.Columns.Append('Кін дата',adVarWChar,255);
+  Tables.Columns.Append('Вид навч',adVarWChar,255);
+  Tables.Columns.Append('Комент',adVarWChar,255);
+  Tables.Columns.Append('Група',adVarWChar,255);
+
+  ADOConnection7.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+  ADOConnection7.LoginPrompt:=false;
+  ADOConnection7.Connected:=true;
+  ADOQuery7.Connection:=ADOConnection7;
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.Add('SELECT * FROM '+graf);
+  ADOQuery7.Active:=true;
+  DataSource7.DataSet:=ADOQuery7;
+  DBGrid7.DataSource:=DataSource7;
+  DBNavigator7.DataSource:=DataSource7;
+
+  //Создание таблицы расписания
+
+
+  DBGrid7.Columns[0].Width := 0; //ширина полей
+  DBGrid7.Columns[1].Width := 80; //ширина полей
+  DBGrid7.Columns[2].Width := 80; //ширина полей
+  DBGrid7.Columns[3].Width := 80; //ширина полей
+  DBGrid7.Columns[4].Width := 80; //ширина полей
+
+
+
   ADOQuery1.Insert;
   ADOQuery1.FieldByName('Група').AsString := Edit1.Text;
   ADOQuery1.FieldByName('IDГруп').AsString := test;
@@ -377,6 +366,10 @@ begin
 
   DBGrid1.Columns[0].Width := 0; //ширина полей
   DBGrid1.Columns[1].Width := 80; //ширина полей
+
+  //Таблица с группи на вкладке графика
+  DBGrid6.Columns[0].Width := 0; //ширина полей
+  DBGrid6.Columns[1].Width := 80; //ширина полей
 
   DBGrid2.Columns[0].Width := 30; //ширина полей
   DBGrid2.Columns[1].Width := 40; //ширина полей
@@ -411,12 +404,16 @@ begin
   ADOQuery3.SQL.Add('DROP Table '+DBGrid1.Fields[0].Value+'rsp');
   ADOQuery3.ExecSQL;
 
-  DBGrid1.DataSource.DataSet.Delete
+  DBGrid1.DataSource.DataSet.Delete;
+
+
+  //Таблица с группами из вкладки график
+  //DBGrid6.DataSource.DataSet.Delete;
 end;
 
 procedure TForm1.Button8Click(Sender: TObject);
 var
-  rsp,test:string;
+  rsp,test,graf:string;
   y,x1,x2,add:string;
   nom,i:integer;
   z:integer;
@@ -440,11 +437,13 @@ begin
  test:=excel.WorkBooks[1].WorkSheets[1].Range['G'+x1].Value;
 
 
+
   for i:=0 to Length(test) do  // Удаление - из диапазона
   begin
     Delete(test,Pos('-',test),1);
   end;
   rsp:=test+'rsp';
+  graf:=test+'graf';
 
   ADOConnection2.Connected:=false;
   ADOConnection3.Connected:=false;
@@ -536,6 +535,56 @@ begin
   DBGrid3.DataSource:=DataSource3;
   //DBNavigator1.DataSource:=DataSource1;
 
+  // Создание таблицы графика
+
+  ADOConnection7.Connected:=false;
+
+  //Создание таблицы групп
+  Tables:=CoTable.Create;
+  Tables.Name:=graf;
+
+  Tables.ParentCatalog:=DB;
+  DB.Tables.Append(Tables);
+  Columns:=CoColumn.Create;
+  with Columns do
+  begin
+    ParentCatalog:=DB;
+    Name:='id';
+    type_:=adInteger;
+    Properties['Autoincrement'].Value:=True;
+    Properties['Description'].Value:='Ключевое поле';
+  end;
+
+  Tables.Columns.Append(Columns,0,0);
+  Tables.Columns.Append('Поч дата',adVarWChar,255);
+  Tables.Columns.Append('Кін дата',adVarWChar,255);
+  Tables.Columns.Append('Вид навч',adVarWChar,255);
+  Tables.Columns.Append('Комент',adVarWChar,255);
+  Tables.Columns.Append('Група',adVarWChar,255);
+
+  ADOConnection7.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+  ADOConnection7.LoginPrompt:=false;
+  ADOConnection7.Connected:=true;
+  ADOQuery7.Connection:=ADOConnection7;
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.Add('SELECT * FROM '+graf);
+  ADOQuery7.Active:=true;
+  DataSource7.DataSet:=ADOQuery7;
+  DBGrid7.DataSource:=DataSource7;
+  DBNavigator7.DataSource:=DataSource7;
+
+  //Создание таблицы расписания
+
+
+  DBGrid7.Columns[0].Width := 0; //ширина полей
+  DBGrid7.Columns[1].Width := 80; //ширина полей
+  DBGrid7.Columns[2].Width := 80; //ширина полей
+  DBGrid7.Columns[3].Width := 80; //ширина полей
+  DBGrid7.Columns[4].Width := 80; //ширина полей
+
+
+
+
   ADOQuery1.Insert;
   ADOQuery1.FieldByName('Група').AsString := excel.WorkBooks[1].WorkSheets[1].Range['G'+x1].Value;
   ADOQuery1.FieldByName('IDГруп').AsString := test;
@@ -543,6 +592,10 @@ begin
 
   DBGrid1.Columns[0].Width := 0; //ширина полей
   DBGrid1.Columns[1].Width := 80; //ширина полей
+
+  // Табл с грп из вкладки график
+  DBGrid6.Columns[0].Width := 0; //ширина полей
+  DBGrid6.Columns[1].Width := 80; //ширина полей
 
   DBGrid2.Columns[0].Width := 30; //ширина полей
   DBGrid2.Columns[1].Width := 40; //ширина полей
@@ -578,6 +631,19 @@ begin
 
 end;
 
+procedure TForm1.Button9Click(Sender: TObject);
+begin
+
+    ADOQuery7.Insert;
+    ADOQuery7.FieldByName('Поч дата').Value:=DateToStr(DateTimePicker1.Date);
+    ADOQuery7.FieldByName('Кін дата').Value:=DateToStr(DateTimePicker2.Date);
+    ADOQuery7.FieldByName('Вид навч').Value:=ComboBox1.ItemIndex;
+    ADOQuery7.FieldByName('Комент').Value:=Edit3.Text;
+    ADOQuery7.FieldByName('Група').Value:=DBGrid6.Fields[1].Value;
+    ADOQuery7.Post;
+
+end;
+
 procedure TForm1.DBGrid1CellClick(Column: TColumn); //Выбор группы из списка для просмотра расписания
 var
   i: integer;
@@ -595,7 +661,7 @@ begin
   ADOQuery3.SQL.Add('SELECT * FROM '+DBGrid1.Fields[0].Value+'rsp');
   ADOQuery3.Active:=true;
 
-  DBGrid2.Columns[0].Width := 30; //ширина полей
+  DBGrid2.Columns[0].Width := 0; //ширина полей
   DBGrid2.Columns[1].Width := 40; //ширина полей
   DBGrid2.Columns[2].Width := 40; //ширина полей
   DBGrid2.Columns[3].Width := 70; //ширина полей
@@ -604,6 +670,29 @@ begin
   DBGrid2.Columns[6].Width := 120; //ширина полей
 
   for i := 0 to 23 do DBGrid3.Columns[i].Width := 15; //ширина полей
+end;
+
+procedure TForm1.DBGrid6CellClick(Column: TColumn);
+var
+  i: integer;
+begin
+  DBGrid6.DataSource.DataSet.RecNo;
+  DBGrid6.Fields[0].Value;
+
+  Panel2.Caption:='Група '+DBGrid6.Fields[1].Value;
+
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.Add('SELECT * FROM '+DBGrid6.Fields[0].Value+'graf');
+  ADOQuery7.Active:=true;
+
+
+  DBGrid7.Columns[0].Width := 0; //ширина полей
+  DBGrid7.Columns[1].Width := 80; //ширина полей
+  DBGrid7.Columns[2].Width := 80; //ширина полей
+  DBGrid7.Columns[3].Width := 80; //ширина полей
+  DBGrid7.Columns[4].Width := 80; //ширина полей
+
+
 end;
 
 procedure TForm1.Form1Create(Sender: TObject); //Создание и чтение файлов при запуске
@@ -624,14 +713,31 @@ begin
     ADOQuery1.SQL.Add('SELECT * FROM grp');
     ADOQuery1.Active:=true;
     DataSource1.DataSet:=ADOQuery1;
+
+
     DBGrid1.DataSource:=DataSource1;
     DBGrid1.ReadOnly:=true;
+
+    DBGrid6.DataSource:=DataSource1;
+    DBGrid6.ReadOnly:=true;
+
+
+
+
+
     DBNavigator1.DataSource:=DataSource1;
+
     DBGrid1.DataSource.DataSet.RecNo;
     DBGrid1.Fields[0].Value;
 
+    DBGrid6.DataSource.DataSet.RecNo;
+    DBGrid6.Fields[0].Value;
+
     DBGrid1.Columns[0].Width := 0; //ширина полей
     DBGrid1.Columns[1].Width := 80; //ширина полей
+
+    DBGrid6.Columns[0].Width := 0; //ширина полей
+    DBGrid6.Columns[1].Width := 80; //ширина полей
     //Расписание группы
     Panel1.Caption:='Група '+DBGrid1.Fields[1].Value;
     ADOConnection2.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
@@ -680,6 +786,30 @@ begin
 
     DBGrid4.Columns[0].Width := 0; //ширина полей
     DBGrid4.Columns[1].Width := 80; //ширина полей
+
+
+    ADOConnection7.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+    ADOConnection7.LoginPrompt:=false;
+    ADOConnection7.Connected:=true;
+    ADOQuery7.Connection:=ADOConnection7;
+    ADOQuery7.SQL.Clear;
+    ADOQuery7.SQL.Add('SELECT * FROM '+DBGrid6.Fields[0].Value+'graf');
+    ADOQuery7.Active:=true;
+    DataSource7.DataSet:=ADOQuery7;
+    DBGrid7.DataSource:=DataSource7;
+    DBNavigator7.DataSource:=DataSource7;
+
+    DBGrid7.Columns[0].Width := 0; //ширина полей
+    DBGrid7.Columns[1].Width := 80; //ширина полей
+    DBGrid7.Columns[2].Width := 80; //ширина полей
+    DBGrid7.Columns[3].Width := 80; //ширина полей
+    DBGrid7.Columns[4].Width := 80; //ширина полей
+
+
+
+
+
+
   end
   else
   begin
@@ -711,8 +841,13 @@ begin
     ADOQuery1.SQL.Add('SELECT * FROM grp');
     ADOQuery1.Active:=true;
     DataSource1.DataSet:=ADOQuery1;
+
     DBGrid1.DataSource:=DataSource1;
     DBGrid1.ReadOnly:=true;
+
+    DBGrid6.DataSource:=DataSource1;
+    DBGrid6.ReadOnly:=true;
+
     DBNavigator1.DataSource:=DataSource1;
     //Создание таблицы для преподавателей
     ADOConnection1.Connected:=false;
@@ -800,6 +935,10 @@ begin
   end;
   }
   //bControl1Change(TabControl1);
+
+
+
+
 end;
 
 procedure TForm1.Form1Destroy(Sender: TObject); //Закрытие файла при выходе из программы
