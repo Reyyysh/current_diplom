@@ -13,7 +13,6 @@ uses
 
 type
   TForm1 = class(TForm)
-    TabControl1: TTabControl;
     DBGrid1: TDBGrid;
     DBGrid2: TDBGrid;
     DBGrid3: TDBGrid;
@@ -42,19 +41,23 @@ type
     ADOConnection5: TADOConnection;
     DataSource5: TDataSource;
     ADOQuery5: TADOQuery;
-    OpenDialog1: TOpenDialog;
     Button6: TButton;
     Edit2: TEdit;
     Panel1: TPanel;
     Button7: TButton;
     Button8: TButton;
+    OpenDialog1: TOpenDialog;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
     procedure Button5Click(Sender: TObject);
     procedure Form1Destroy(Sender: TObject);
     procedure Form1Create(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
-    procedure TabControl1Change(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
@@ -796,59 +799,12 @@ begin
     DBGrid4.ReadOnly:=true;
   end;
   }
-  TabControl1Change(TabControl1);
+  //bControl1Change(TabControl1);
 end;
 
 procedure TForm1.Form1Destroy(Sender: TObject); //Закрытие файла при выходе из программы
 begin
   excel:=Unassigned;
-end;
-
-procedure TForm1.TabControl1Change(Sender: TObject); //Вкладки
-begin
-  Panel1.Visible:=false;
-  Edit1.Visible:=false;
-  Edit2.Visible:=false;
-  Button1.Visible:=false;
-  Button2.Visible:=false;
-  Button3.Visible:=false;
-  Button4.Visible:=false;
-  Button5.Visible:=false;
-  Button6.Visible:=false;
-  Button7.Visible:=false;
-  DBGrid1.Visible:=false;
-  DBGrid2.Visible:=false;
-  DBGrid3.Visible:=false;
-  DBGrid4.Visible:=false;
-  DBGrid5.Visible:=false;
-  DBNavigator1.Visible:=false;
-  DBNavigator2.Visible:=false;
-  if TabControl1.TabIndex=0 then
-  begin
-    ADOQuery1.Active:=true;
-    Panel1.Visible:=true;
-    Edit1.Visible:=true;
-    Button1.Visible:=true;
-    Button2.Visible:=true;
-    Button3.Visible:=true;
-    Button5.Visible:=true;
-    Button7.Visible:=true;
-    DBGrid1.Visible:=true;
-    DBGrid2.Visible:=true;
-    DBGrid3.Visible:=true;
-    DBNavigator1.Visible:=true;
-    DBNavigator2.Visible:=true;
-  end;
-  if TabControl1.TabIndex=1 then
-  begin
-    ADOQuery4.Active:=true;
-    Edit2.Visible:=true;
-    Button1.Visible:=true;
-    Button4.Visible:=true;
-    Button6.Visible:=true;
-    DBGrid4.Visible:=true;
-    DBGrid5.Visible:=true;
-  end;
 end;
 
 end.
