@@ -38,7 +38,6 @@ type
     ADOConnection5: TADOConnection;
     DataSource5: TDataSource;
     ADOQuery5: TADOQuery;
-    Button6: TButton;
     Edit2: TEdit;
     Panel1: TPanel;
     Button7: TButton;
@@ -66,16 +65,11 @@ type
     Panel2: TPanel;
     DBNavigator7: TDBNavigator;
     TabSheet5: TTabSheet;
-    PageControl2: TPageControl;
-    TabSheet6: TTabSheet;
-    TabSheet7: TTabSheet;
-    SpeedButton1: TSpeedButton;
     DBGrid8: TDBGrid;
     DateTimePicker3: TDateTimePicker;
     Button10: TButton;
     Edit4: TEdit;
     DBGrid9: TDBGrid;
-    DBLookupComboBox1: TDBLookupComboBox;
     ListBox1: TListBox;
     ADOConnection9: TADOConnection;
     DataSource9: TDataSource;
@@ -87,7 +81,18 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Button11: TButton;
-    DBListBox1: TDBListBox;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    DateTimePicker4: TDateTimePicker;
+    Label9: TLabel;
+    ListBox2: TListBox;
+    Label10: TLabel;
+    Label11: TLabel;
+    Edit5: TEdit;
+    Button6: TButton;
+    Button12: TButton;
+    Edit6: TEdit;
+    Label12: TLabel;
     procedure Button5Click(Sender: TObject);
     procedure Form1Destroy(Sender: TObject);
     procedure Form1Create(Sender: TObject);
@@ -105,8 +110,15 @@ type
     procedure DBGrid8DblClick(Sender: TObject);
     procedure ListBox1DblClick(Sender: TObject);
     procedure DBGrid8CellClick(Column: TColumn);
-    procedure DateTimePicker3CloseUp(Sender: TObject);
     procedure Button11Click(Sender: TObject);
+    procedure DBGrid6DblClick(Sender: TObject);
+    procedure ListBox2DblClick(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    procedure Edit5Change(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure Edit6Change(Sender: TObject);
+
+
   private
     { Private declarations }
   public
@@ -125,9 +137,30 @@ implementation
 
 procedure TForm1.Button10Click(Sender: TObject);
 var
-  Result,test,all:string;
+  Result,test,all,zam:string;
   i,y:integer;
 begin
+
+
+  if RadioButton1.Checked=true then
+  begin
+      if DayOfWeek(DateTimePicker3.Date)<>7 then
+  begin
+
+
+    ShowMessage('Виберіть суботу!');
+    Exit;
+  end;
+  end;
+
+
+
+  if ListBox1.Count=0 then
+  begin
+     ShowMessage('Групи не вибрані!');
+    Exit;
+  end;
+
 
 
  {case DayOfWeek(DateTimePicker3.Date) of
@@ -140,6 +173,14 @@ begin
   7: Result := 'Суббота';
   end;
   Edit4.Text:=Result;  }
+  zam:='';
+  if RadioButton1.Checked=true then
+  zam:='Робоча субота';
+  if RadioButton2.Checked=true then
+  zam:='День на день';
+
+
+
 
 
    for i:=0 to ListBox1.Items.Count-1 do
@@ -158,22 +199,27 @@ begin
 
     ADOQuery9.Insert;
     ADOQuery9.FieldByName('Група').Value:=ListBox1.Items[i];
-    ADOQuery9.FieldByName('Дата').Value:=DateToStr(DateTimePicker3.Date);
-    ADOQuery9.FieldByName('Комент').Value:=edit4.text;
+    ADOQuery9.FieldByName('День який замін').Value:=DateToStr(DateTimePicker3.Date);
+    ADOQuery9.FieldByName('День яким замін').Value:=DateToStr(DateTimePicker4.Date);
+    ADOQuery9.FieldByName('Вид заміни').Value:=zam;
+    ADOQuery9.FieldByName('Коментар').Value:=edit4.text;
     ADOQuery9.Post;
 
    end;
 
-   ShowMessage('Для груп: '+all+' була додана робітнича субота '+DateToStr(DateTimePicker3.Date));
+   //ShowMessage('Для груп: '+all+' була додана робітнича субота '+DateToStr(DateTimePicker3.Date));
    ListBox1.Clear;
 
 
 
 
 
-  DBGrid9.Columns[0].Width := 80; //ширина полей
+  DBGrid9.Columns[0].Width := 10; //ширина полей
   DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 90; //ширина полей
+  DBGrid9.Columns[3].Width := 90; //ширина полей
+  DBGrid9.Columns[4].Width := 80; //ширина полей
+  DBGrid9.Columns[5].Width := 90; //ширина полей
 
 
 end;
@@ -194,6 +240,11 @@ begin
    end;
 
 
+end;
+
+procedure TForm1.Button12Click(Sender: TObject);
+begin
+ ListBox1.Clear;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject); //Кнопка открытия Exel файла
@@ -501,9 +552,12 @@ begin
 
 
 
-  DBGrid9.Columns[0].Width := 80; //ширина полей
+  DBGrid9.Columns[0].Width := 10; //ширина полей
   DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 90; //ширина полей
+  DBGrid9.Columns[3].Width := 90; //ширина полей
+  DBGrid9.Columns[4].Width := 80; //ширина полей
+  DBGrid9.Columns[5].Width := 90; //ширина полей
 
 
   //////////////////////////////////////////////////////////////////
@@ -542,8 +596,7 @@ end;
 
 procedure TForm1.Button6Click(Sender: TObject); //Кнопка поиска преподавателей
 begin
-  if not ADOQuery4.Locate('Викладач',Edit2.Text,[loCaseInsensitive, loPartialKey])then
-  ShowMessage('Запись не найдена');
+  ListBox2.Clear;
 end;
 
 procedure TForm1.Button7Click(Sender: TObject);
@@ -760,8 +813,13 @@ begin
 
   Tables.Columns.Append(Columns,0,0);
   Tables.Columns.Append('Група',adVarWChar,255);
-  Tables.Columns.Append('Дата',adVarWChar,255);
-  Tables.Columns.Append('Комент',adVarWChar,255);
+  Tables.Columns.Append('День який замін',adVarWChar,255);
+  Tables.Columns.Append('День яким замін',adVarWChar,255);
+  Tables.Columns.Append('Вид заміни',adVarWChar,255);
+  Tables.Columns.Append('Коментар',adVarWChar,255);
+
+
+
 
   ADOConnection9.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
   ADOConnection9.LoginPrompt:=false;
@@ -777,9 +835,12 @@ begin
 
 
 
-  DBGrid9.Columns[0].Width := 80; //ширина полей
+  DBGrid9.Columns[0].Width := 10; //ширина полей
   DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 90; //ширина полей
+  DBGrid9.Columns[3].Width := 90; //ширина полей
+  DBGrid9.Columns[4].Width := 80; //ширина полей
+  DBGrid9.Columns[5].Width := 90; //ширина полей
 
 
   //////////////////////////////////////////////////////////////////
@@ -836,22 +897,50 @@ begin
 end;
 
 procedure TForm1.Button9Click(Sender: TObject);
+var
+  Result,test,all,zam:string;
+  i,y:integer;
 begin
+
+
+
+
+
+     for i:=0 to ListBox2.Items.Count-1 do
+   begin
+   test:=ListBox2.Items[i];
+   all:=all+ListBox2.Items[i]+',';
+
+    for y:=0 to Length(test) do  // Удаление "-" из диапазона
+  begin
+    Delete(test,Pos('-',test),1);
+  end;
+
+     ADOQuery7.SQL.Clear;
+    ADOQuery7.SQL.Add('SELECT * FROM '+test+'graf');
+    ADOQuery7.Active:=true;
 
     ADOQuery7.Insert;
     ADOQuery7.FieldByName('Поч дата').Value:=DateToStr(DateTimePicker1.Date);
     ADOQuery7.FieldByName('Кін дата').Value:=DateToStr(DateTimePicker2.Date);
-    ADOQuery7.FieldByName('Вид навч').Value:=ComboBox1.ItemIndex;
+    ADOQuery7.FieldByName('Вид навч').Value:=ComboBox1.Items[ComboBox1.ItemIndex];
     ADOQuery7.FieldByName('Комент').Value:=Edit3.Text;
     ADOQuery7.FieldByName('Група').Value:=DBGrid6.Fields[1].Value;
     ADOQuery7.Post;
 
-end;
+   end;
 
-procedure TForm1.DateTimePicker3CloseUp(Sender: TObject);
-begin
-  if DayOfWeek(DateTimePicker3.Date)<>7 then
-  ShowMessage('Виберіть суботу!');
+
+
+
+
+
+  DBGrid7.Columns[0].Width := 0; //ширина полей
+  DBGrid7.Columns[1].Width := 80; //ширина полей
+  DBGrid7.Columns[2].Width := 80; //ширина полей
+  DBGrid7.Columns[3].Width := 80; //ширина полей
+  DBGrid7.Columns[4].Width := 80; //ширина полей
+
 end;
 
 procedure TForm1.DBGrid1CellClick(Column: TColumn); //Выбор группы из списка для просмотра расписания
@@ -905,6 +994,43 @@ begin
 
 end;
 
+procedure TForm1.DBGrid6DblClick(Sender: TObject);
+var
+  i,check:integer;
+begin
+//ListBox1.Items.i:=DBGrid8.Fields[0].Value  ;
+
+      if Listbox2.Count=2 then
+    exit;
+
+  if ListBox2.Items.Count=0 then
+  ListBox2.Items.add(DBGrid6.Fields[1].Value);
+
+
+   check:=0;
+  for i:=0 to ListBox2.Items.Count-1 do
+     begin
+   if DBGrid6.Fields[1].Value=ListBox2.Items[i]  then
+   begin
+    check:=1;
+    break;
+
+
+   end
+   else
+    check:=0;
+
+
+     end;
+
+    if check=0 then  ListBox2.Items.add(DBGrid6.Fields[1].Value);
+
+
+
+
+
+end;
+
 procedure TForm1.DBGrid8CellClick(Column: TColumn);
 var
   i: integer;
@@ -919,9 +1045,12 @@ begin
   ADOQuery9.Active:=true;
 
 
-  DBGrid9.Columns[0].Width := 80; //ширина полей
+  DBGrid9.Columns[0].Width := 10; //ширина полей
   DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 90; //ширина полей
+  DBGrid9.Columns[3].Width := 90; //ширина полей
+  DBGrid9.Columns[4].Width := 80; //ширина полей
+  DBGrid9.Columns[5].Width := 90; //ширина полей
 
 
 end;
@@ -949,13 +1078,31 @@ ListBox1.Items.add(DBGrid8.Fields[1].Value);
    else
     check:=0;
 
- 
+
      end;
-     
+
     if check=0 then  ListBox1.Items.add(DBGrid8.Fields[1].Value);
 
 
 
+end;
+
+procedure TForm1.Edit2Change(Sender: TObject);
+begin
+  if not ADOQuery4.Locate('Викладач',Edit2.Text,[loCaseInsensitive, loPartialKey])then
+  //Message('Запись не найдена');
+end;
+
+procedure TForm1.Edit5Change(Sender: TObject);
+begin
+  if not ADOQuery1.Locate('Група',Edit5.Text,[loCaseInsensitive, loPartialKey])then
+  //Message('Запись не найдена');
+end;
+
+procedure TForm1.Edit6Change(Sender: TObject);
+begin
+ if not ADOQuery1.Locate('Група',Edit6.Text,[loCaseInsensitive, loPartialKey])then
+  //Message('Запись не найдена');
 end;
 
 procedure TForm1.Form1Create(Sender: TObject); //Создание и чтение файлов при запуске
@@ -1092,9 +1239,12 @@ begin
     DBGrid9.DataSource:=DataSource9;
     DBNavigator9.DataSource:=DataSource9;
 
-    DBGrid9.Columns[0].Width := 80; //ширина полей
-    DBGrid9.Columns[1].Width := 80; //ширина полей
-    DBGrid9.Columns[2].Width := 80; //ширина полей
+  DBGrid9.Columns[0].Width := 10; //ширина полей
+  DBGrid9.Columns[1].Width := 80; //ширина полей
+  DBGrid9.Columns[2].Width := 90; //ширина полей
+  DBGrid9.Columns[3].Width := 90; //ширина полей
+  DBGrid9.Columns[4].Width := 80; //ширина полей
+  DBGrid9.Columns[5].Width := 90; //ширина полей
 
 
 
@@ -1243,6 +1393,11 @@ end;
 procedure TForm1.ListBox1DblClick(Sender: TObject);
 begin
   ListBox1.Items.Delete(ListBox1.ItemIndex);
+end;
+
+procedure TForm1.ListBox2DblClick(Sender: TObject);
+begin
+ ListBox2.Items.Delete(ListBox2.ItemIndex);
 end;
 
 end.
