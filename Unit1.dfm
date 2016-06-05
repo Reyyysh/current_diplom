@@ -4,8 +4,8 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Form1'
-  ClientHeight = 558
-  ClientWidth = 1086
+  ClientHeight = 562
+  ClientWidth = 1087
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,10 +20,10 @@ object Form1: TForm1
   TextHeight = 13
   object PageControl1: TPageControl
     Left = 0
-    Top = 5
+    Top = 0
     Width = 1089
     Height = 561
-    ActivePage = TabSheet5
+    ActivePage = TabSheet2
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = #1043#1088#1091#1087#1080
@@ -82,7 +82,7 @@ object Form1: TForm1
         Width = 964
         Height = 44
         Caption = #1043#1088#1091#1087#1072' '#1085#1077' '#1074#1080#1073#1088#1072#1085#1072
-        Color = clMoneyGreen
+        Color = clActiveCaption
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -184,7 +184,7 @@ object Form1: TForm1
       Caption = #1042#1080#1082#1083#1072#1076#1072#1095#1110
       ImageIndex = 1
       object Label11: TLabel
-        Left = 57
+        Left = 49
         Top = 9
         Width = 33
         Height = 13
@@ -193,7 +193,7 @@ object Form1: TForm1
       object Edit2: TEdit
         Left = 0
         Top = 28
-        Width = 146
+        Width = 121
         Height = 21
         TabOrder = 0
         OnChange = Edit2Change
@@ -202,7 +202,7 @@ object Form1: TForm1
         Left = 0
         Top = 61
         Width = 121
-        Height = 434
+        Height = 476
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -210,26 +210,185 @@ object Form1: TForm1
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
       end
-      object DBGrid5: TDBGrid
-        Left = 142
-        Top = 78
-        Width = 570
-        Height = 434
-        TabOrder = 2
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-      end
       object Button4: TButton
-        Left = 166
-        Top = -1
+        Left = 140
+        Top = 9
         Width = 146
         Height = 25
         Caption = #1047#1072#1074#1072#1085#1090#1072#1078#1080#1090#1080' '#1074#1080#1082#1083#1072#1076#1072#1095#1110#1074
-        TabOrder = 3
+        TabOrder = 2
         OnClick = Button4Click
+      end
+      object PageControl2: TPageControl
+        Left = 120
+        Top = 61
+        Width = 961
+        Height = 476
+        ActivePage = TabSheet6
+        TabOrder = 3
+        object TabSheet6: TTabSheet
+          Caption = #1047#1072#1084#1110#1085#1072
+          ExplicitLeft = -236
+          ExplicitTop = 27
+          ExplicitWidth = 1070
+          object Label13: TLabel
+            Left = 57
+            Top = 13
+            Width = 26
+            Height = 13
+            Caption = #1044#1072#1090#1072
+          end
+          object Label14: TLabel
+            Left = 53
+            Top = 59
+            Width = 30
+            Height = 13
+            Caption = #1043#1088#1091#1087#1072
+          end
+          object Label15: TLabel
+            Left = 53
+            Top = 105
+            Width = 46
+            Height = 13
+            Caption = #8470' '#1083#1077#1085#1090#1080
+          end
+          object Label16: TLabel
+            Left = 46
+            Top = 151
+            Width = 71
+            Height = 13
+            Caption = #1050#1080#1084' '#1079#1072#1084#1085#1102#1108#1084#1086
+          end
+          object Label17: TLabel
+            Left = 49
+            Top = 197
+            Width = 44
+            Height = 13
+            Caption = #1055#1088#1077#1076#1084#1077#1090
+          end
+          object Label18: TLabel
+            Left = 42
+            Top = 243
+            Width = 75
+            Height = 13
+            Caption = #1050#1086#1075#1086' '#1079#1072#1084#1110#1085#1103#1108#1084#1086
+          end
+          object Label19: TLabel
+            Left = 49
+            Top = 289
+            Width = 44
+            Height = 13
+            Caption = #1055#1088#1077#1076#1084#1077#1090
+          end
+          object Label20: TLabel
+            Left = 47
+            Top = 335
+            Width = 52
+            Height = 13
+            Caption = #1040#1091#1076#1080#1090#1086#1088#1110#1103
+          end
+          object DateTimePicker5: TDateTimePicker
+            Left = 16
+            Top = 32
+            Width = 126
+            Height = 21
+            Date = 42526.829379166670000000
+            Time = 42526.829379166670000000
+            TabOrder = 0
+          end
+          object DBLookupComboBox1: TDBLookupComboBox
+            Left = 16
+            Top = 78
+            Width = 126
+            Height = 21
+            TabOrder = 1
+          end
+          object ComboBox2: TComboBox
+            Left = 16
+            Top = 124
+            Width = 126
+            Height = 21
+            Style = csDropDownList
+            TabOrder = 2
+            Items.Strings = (
+              #1055#1077#1088#1096#1072
+              #1044#1088#1091#1075#1072
+              #1058#1088#1077#1090#1103
+              #1063#1077#1090#1074#1077#1088#1090#1072
+              #1055'`'#1103#1090#1072)
+          end
+          object DBLookupComboBox2: TDBLookupComboBox
+            Left = 16
+            Top = 170
+            Width = 126
+            Height = 21
+            TabOrder = 3
+          end
+          object DBLookupComboBox3: TDBLookupComboBox
+            Left = 16
+            Top = 216
+            Width = 126
+            Height = 21
+            TabOrder = 4
+          end
+          object DBLookupComboBox5: TDBLookupComboBox
+            Left = 16
+            Top = 308
+            Width = 126
+            Height = 21
+            TabOrder = 5
+          end
+          object Edit7: TEdit
+            Left = 16
+            Top = 354
+            Width = 126
+            Height = 21
+            TabOrder = 6
+            Text = 'Edit7'
+          end
+          object DBLookupComboBox4: TDBLookupComboBox
+            Left = 16
+            Top = 262
+            Width = 126
+            Height = 21
+            TabOrder = 7
+          end
+          object DBGrid5: TDBGrid
+            Left = 160
+            Top = 78
+            Width = 793
+            Height = 367
+            TabOrder = 8
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -11
+            TitleFont.Name = 'Tahoma'
+            TitleFont.Style = []
+          end
+          object DBNavigator5: TDBNavigator
+            Left = 160
+            Top = 43
+            Width = 240
+            Height = 18
+            TabOrder = 9
+          end
+        end
+        object TabSheet7: TTabSheet
+          Caption = #1055#1088#1077#1076#1084#1077#1090' '#1085#1072' '#1087#1088#1077#1076#1084#1077#1090
+          ImageIndex = 1
+          ExplicitLeft = -20
+          ExplicitTop = 32
+          ExplicitWidth = 281
+          ExplicitHeight = 165
+        end
+        object TabSheet8: TTabSheet
+          Caption = #1047#1072#1084#1110#1085#1072' '#1074#1110#1076#1087#1088#1072#1094#1102#1074#1072#1085#1085#1103#1084
+          ImageIndex = 2
+          ExplicitLeft = 15
+          ExplicitTop = 64
+          ExplicitWidth = 577
+          ExplicitHeight = 326
+        end
       end
     end
     object TabSheet3: TTabSheet
@@ -326,12 +485,19 @@ object Form1: TForm1
         Top = 128
         Width = 728
         Height = 402
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+        OnDrawColumnCell = DBGrid7DrawColumnCell
       end
       object Panel2: TPanel
         Left = 124
@@ -339,7 +505,7 @@ object Form1: TForm1
         Width = 964
         Height = 43
         Caption = #1043#1088#1091#1087#1072' '#1085#1077' '#1074#1080#1073#1088#1072#1085#1072
-        Color = clMoneyGreen
+        Color = clActiveCaption
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -399,6 +565,7 @@ object Form1: TForm1
     object TabSheet5: TTabSheet
       Caption = #1047#1072#1084#1077#1085#1099
       ImageIndex = 4
+      ExplicitWidth = 1085
       object Label7: TLabel
         Left = 163
         Top = 57
@@ -484,12 +651,19 @@ object Form1: TForm1
         Top = 137
         Width = 729
         Height = 393
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
         TitleFont.Style = []
+        OnDrawColumnCell = DBGrid9DrawColumnCell
       end
       object Button10: TButton
         Left = 135
@@ -511,11 +685,11 @@ object Form1: TForm1
       end
       object Panel3: TPanel
         Left = 124
-        Top = 0
-        Width = 1089
+        Top = -1
+        Width = 957
         Height = 43
         Caption = #1043#1088#1091#1087#1072' '#1085#1077' '#1074#1080#1073#1088#1072#1085#1072
-        Color = clMoneyGreen
+        Color = clActiveCaption
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -24
@@ -537,7 +711,7 @@ object Form1: TForm1
       object DBNavigator9: TDBNavigator
         Left = 352
         Top = 118
-        Width = 740
+        Width = 720
         Height = 18
         TabOrder = 10
       end
@@ -547,7 +721,6 @@ object Form1: TForm1
         Width = 186
         Height = 21
         TabOrder = 11
-        Text = 'Edit4'
       end
       object DBGrid8: TDBGrid
         Left = -4
@@ -562,6 +735,32 @@ object Form1: TForm1
         TitleFont.Style = []
         OnCellClick = DBGrid8CellClick
         OnDblClick = DBGrid8DblClick
+      end
+      object Button13: TButton
+        Left = 352
+        Top = 52
+        Width = 193
+        Height = 25
+        Caption = #1055#1077#1088#1077#1083#1110#1082' '#1089#1091#1073#1086#1090
+        TabOrder = 13
+        OnClick = Button13Click
+      end
+      object Button14: TButton
+        Left = 352
+        Top = 83
+        Width = 193
+        Height = 25
+        Caption = #1055#1077#1088#1077#1083#1110#1082' '#1076#1085#1110#1074' '#1079' '#1079#1072#1084#1110#1085#1072#1084#1080
+        TabOrder = 14
+        OnClick = Button14Click
+      end
+      object Button15: TButton
+        Left = 551
+        Top = 68
+        Width = 193
+        Height = 25
+        Caption = 'C'#1082#1080#1085#1091#1090#1080' '#1092#1110#1083#1100#1090#1088#1080
+        TabOrder = 15
       end
     end
   end

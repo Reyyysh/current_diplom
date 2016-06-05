@@ -93,6 +93,30 @@ type
     Button12: TButton;
     Edit6: TEdit;
     Label12: TLabel;
+    Button13: TButton;
+    Button14: TButton;
+    Button15: TButton;
+    PageControl2: TPageControl;
+    TabSheet6: TTabSheet;
+    TabSheet7: TTabSheet;
+    TabSheet8: TTabSheet;
+    DateTimePicker5: TDateTimePicker;
+    DBLookupComboBox1: TDBLookupComboBox;
+    ComboBox2: TComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    DBLookupComboBox5: TDBLookupComboBox;
+    Edit7: TEdit;
+    DBLookupComboBox4: TDBLookupComboBox;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    DBNavigator5: TDBNavigator;
     procedure Button5Click(Sender: TObject);
     procedure Form1Destroy(Sender: TObject);
     procedure Form1Create(Sender: TObject);
@@ -117,6 +141,12 @@ type
     procedure Edit5Change(Sender: TObject);
     procedure Button12Click(Sender: TObject);
     procedure Edit6Change(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+    procedure DBGrid9DrawColumnCell(Sender: TObject; const [Ref] Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure Button14Click(Sender: TObject);
+    procedure DBGrid7DrawColumnCell(Sender: TObject; const [Ref] Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
 
 
   private
@@ -137,7 +167,7 @@ implementation
 
 procedure TForm1.Button10Click(Sender: TObject);
 var
-  Result,test,all,zam:string;
+  Result,test,all,zam,grup:string;
   i,y:integer;
 begin
 
@@ -186,6 +216,7 @@ begin
    for i:=0 to ListBox1.Items.Count-1 do
    begin
    test:=ListBox1.Items[i];
+    grup:=test;
    all:=all+ListBox1.Items[i]+',';
 
     for y:=0 to Length(test) do  // Удаление "-" из диапазона
@@ -198,10 +229,10 @@ begin
   ADOQuery9.Active:=true;
 
     ADOQuery9.Insert;
-    ADOQuery9.FieldByName('Група').Value:=ListBox1.Items[i];
-    ADOQuery9.FieldByName('День який замін').Value:=DateToStr(DateTimePicker3.Date);
-    ADOQuery9.FieldByName('День яким замін').Value:=DateToStr(DateTimePicker4.Date);
-    ADOQuery9.FieldByName('Вид заміни').Value:=zam;
+    ADOQuery9.FieldByName('Група').Value:=grup;
+    ADOQuery9.FieldByName('День_який_замін').Value:=DateToStr(DateTimePicker3.Date);
+    ADOQuery9.FieldByName('День_яким_замін').Value:=DateToStr(DateTimePicker4.Date);
+    ADOQuery9.FieldByName('Вид_заміни').Value:=zam;
     ADOQuery9.FieldByName('Коментар').Value:=edit4.text;
     ADOQuery9.Post;
 
@@ -214,12 +245,12 @@ begin
 
 
 
-  DBGrid9.Columns[0].Width := 10; //ширина полей
-  DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 90; //ширина полей
-  DBGrid9.Columns[3].Width := 90; //ширина полей
-  DBGrid9.Columns[4].Width := 80; //ширина полей
-  DBGrid9.Columns[5].Width := 90; //ширина полей
+  DBGrid9.Columns[0].Width := 0; //ширина полей
+  DBGrid9.Columns[1].Width := 100; //ширина полей
+  DBGrid9.Columns[2].Width := 100; //ширина полей
+  DBGrid9.Columns[3].Width := 100; //ширина полей
+  DBGrid9.Columns[4].Width := 120; //ширина полей
+  DBGrid9.Columns[5].Width := 150; //ширина полей
 
 
 end;
@@ -228,7 +259,7 @@ procedure TForm1.Button11Click(Sender: TObject);
 var
 kol,i:integer;
 begin
-  kol:=ADOQuery1.RecordCount;  
+  kol:=ADOQuery1.RecordCount;
 
    for i:=0 to kol-1 do
    begin
@@ -245,6 +276,61 @@ end;
 procedure TForm1.Button12Click(Sender: TObject);
 begin
  ListBox1.Clear;
+end;
+
+procedure TForm1.Button13Click(Sender: TObject);
+var
+  kol,i:integer;
+begin
+  kol:=ADOQuery1.RecordCount;
+
+
+
+ { for i:=0 to kol do
+    begin
+    ADOQuery9.SQL.Clear;
+   ADOQuery9.SQL.Add('SELECT * FROM ТВ15п1subb WHERE Вид заміни = ''Робоча субота''');
+  ADOQuery9.Active:=true;
+    end;}
+
+
+
+
+DBGrid8.DataSource.DataSet.RecNo;
+  DBGrid8.Fields[0].Value;
+
+  Panel3.Caption:='Група '+DBGrid8.Fields[1].Value;
+
+
+  ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.Add('SELECT * FROM ТВ15п1subb WHERE Вид_заміни = ''Робоча субота''');
+  ADOQuery9.Active:=true;
+
+ // ADOQuery1.SQL.Clear;
+ //  ADOQuery1.SQL.Add('SELECT * FROM Test WHERE names=''Andrey''');
+ //  ADOQuery1.Active:=True;
+
+
+  DBGrid9.Columns[0].Width := 0; //ширина полей
+  DBGrid9.Columns[1].Width := 100; //ширина полей
+  DBGrid9.Columns[2].Width := 100; //ширина полей
+  DBGrid9.Columns[3].Width := 100; //ширина полей
+  DBGrid9.Columns[4].Width := 120; //ширина полей
+  DBGrid9.Columns[5].Width := 150; //ширина полей
+end;
+
+procedure TForm1.Button14Click(Sender: TObject);
+begin
+    ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.Add('SELECT * FROM ТВ15п1subb WHERE Вид_заміни = ''День на день''');
+  ADOQuery9.Active:=true;
+
+  DBGrid9.Columns[0].Width := 0; //ширина полей
+  DBGrid9.Columns[1].Width := 100; //ширина полей
+  DBGrid9.Columns[2].Width := 100; //ширина полей
+  DBGrid9.Columns[3].Width := 100; //ширина полей
+  DBGrid9.Columns[4].Width := 120; //ширина полей
+  DBGrid9.Columns[5].Width := 150; //ширина полей
 end;
 
 procedure TForm1.Button1Click(Sender: TObject); //Кнопка открытия Exel файла
@@ -275,8 +361,8 @@ begin
   begin
     add:=inttostr(strtoint(x1)+i);  // Номер елемента
     ADOQuery2.Insert;
-    ADOQuery2.FieldByName('План Б').Value :=excel.WorkBooks[1].WorkSheets[1].Range['C'+add].Value;
-    ADOQuery2.FieldByName('План К').Value :=excel.WorkBooks[1].WorkSheets[1].Range['D'+add].Value;
+    ADOQuery2.FieldByName('План_Б').Value :=excel.WorkBooks[1].WorkSheets[1].Range['C'+add].Value;
+    ADOQuery2.FieldByName('План_К').Value :=excel.WorkBooks[1].WorkSheets[1].Range['D'+add].Value;
     ADOQuery2.FieldByName('Коментар').Value :=excel.WorkBooks[1].WorkSheets[1].Range['E'+add].Value;
     ADOQuery2.FieldByName('Група').Value :=excel.WorkBooks[1].WorkSheets[1].Range['F'+add].Value;
     ADOQuery2.FieldByName('Дисципліна').Value :=excel.WorkBooks[1].WorkSheets[1].Range['G'+add].Value;
@@ -394,8 +480,8 @@ begin
   end;
 
   Tables.Columns.Append(Columns,0,0);
-  Tables.Columns.Append('План Б',adInteger,0);
-  Tables.Columns.Append('План К',adInteger,0);
+  Tables.Columns.Append('План_Б',adInteger,0);
+  Tables.Columns.Append('План_К',adInteger,0);
   Tables.Columns.Append('Коментар',adVarWChar,255);
   Tables.Columns.Append('Група',adVarWChar,255);
   Tables.Columns.Append('Дисципліна',adVarWChar,255);
@@ -486,9 +572,9 @@ begin
   end;
 
   Tables.Columns.Append(Columns,0,0);
-  Tables.Columns.Append('Поч дата',adVarWChar,255);
-  Tables.Columns.Append('Кін дата',adVarWChar,255);
-  Tables.Columns.Append('Вид навч',adVarWChar,255);
+  Tables.Columns.Append('Поч_дата',adVarWChar,255);
+  Tables.Columns.Append('Кін_дата',adVarWChar,255);
+  Tables.Columns.Append('Вид_навч',adVarWChar,255);
   Tables.Columns.Append('Комент',adVarWChar,255);
   Tables.Columns.Append('Група',adVarWChar,255);
 
@@ -552,12 +638,12 @@ begin
 
 
 
-  DBGrid9.Columns[0].Width := 10; //ширина полей
-  DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 90; //ширина полей
-  DBGrid9.Columns[3].Width := 90; //ширина полей
-  DBGrid9.Columns[4].Width := 80; //ширина полей
-  DBGrid9.Columns[5].Width := 90; //ширина полей
+  DBGrid9.Columns[0].Width := 0; //ширина полей
+  DBGrid9.Columns[1].Width := 100; //ширина полей
+  DBGrid9.Columns[2].Width := 100; //ширина полей
+  DBGrid9.Columns[3].Width := 100; //ширина полей
+  DBGrid9.Columns[4].Width := 120; //ширина полей
+  DBGrid9.Columns[5].Width := 150; //ширина полей
 
 
   //////////////////////////////////////////////////////////////////
@@ -622,7 +708,7 @@ end;
 
 procedure TForm1.Button8Click(Sender: TObject);
 var
-  rsp,test,graf,subb:string;
+  rsp,test,graf,subb,zam:string;
   y,x1,x2,add:string;
   nom,i:integer;
   z:integer;
@@ -675,8 +761,8 @@ begin
   end;
 
   Tables.Columns.Append(Columns,0,0);
-  Tables.Columns.Append('План Б',adInteger,0);
-  Tables.Columns.Append('План К',adInteger,0);
+  Tables.Columns.Append('План_Б',adInteger,0);
+  Tables.Columns.Append('План_К',adInteger,0);
   Tables.Columns.Append('Коментар',adVarWChar,255);
   Tables.Columns.Append('Група',adVarWChar,255);
   Tables.Columns.Append('Дисципліна',adVarWChar,255);
@@ -766,9 +852,9 @@ begin
   end;
 
   Tables.Columns.Append(Columns,0,0);
-  Tables.Columns.Append('Поч дата',adVarWChar,255);
-  Tables.Columns.Append('Кін дата',adVarWChar,255);
-  Tables.Columns.Append('Вид навч',adVarWChar,255);
+  Tables.Columns.Append('Поч_дата',adVarWChar,255);
+  Tables.Columns.Append('Кін_дата',adVarWChar,255);
+  Tables.Columns.Append('Вид_навч',adVarWChar,255);
   Tables.Columns.Append('Комент',adVarWChar,255);
   Tables.Columns.Append('Група',adVarWChar,255);
 
@@ -813,9 +899,9 @@ begin
 
   Tables.Columns.Append(Columns,0,0);
   Tables.Columns.Append('Група',adVarWChar,255);
-  Tables.Columns.Append('День який замін',adVarWChar,255);
-  Tables.Columns.Append('День яким замін',adVarWChar,255);
-  Tables.Columns.Append('Вид заміни',adVarWChar,255);
+  Tables.Columns.Append('День_який_замін',adVarWChar,255);
+  Tables.Columns.Append('День_яким_замін',adVarWChar,255);
+  Tables.Columns.Append('Вид_заміни',adVarWChar,255);
   Tables.Columns.Append('Коментар',adVarWChar,255);
 
 
@@ -835,15 +921,19 @@ begin
 
 
 
-  DBGrid9.Columns[0].Width := 10; //ширина полей
-  DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 90; //ширина полей
-  DBGrid9.Columns[3].Width := 90; //ширина полей
-  DBGrid9.Columns[4].Width := 80; //ширина полей
-  DBGrid9.Columns[5].Width := 90; //ширина полей
+  DBGrid9.Columns[0].Width := 0; //ширина полей
+  DBGrid9.Columns[1].Width := 100; //ширина полей
+  DBGrid9.Columns[2].Width := 100; //ширина полей
+  DBGrid9.Columns[3].Width := 100; //ширина полей
+  DBGrid9.Columns[4].Width := 120; //ширина полей
+  DBGrid9.Columns[5].Width := 150; //ширина полей
 
 
   //////////////////////////////////////////////////////////////////
+
+
+
+ 
 
 
   ADOQuery1.Insert;
@@ -884,8 +974,8 @@ begin
     begin
     add:=inttostr(strtoint(x1)+i);  // Номер елемента
   ADOQuery2.Insert;
-  ADOQuery2.FieldByName('План Б').Value :=excel.WorkBooks[1].WorkSheets[1].Range['C'+add].Value;
-  ADOQuery2.FieldByName('План К').Value :=excel.WorkBooks[1].WorkSheets[1].Range['D'+add].Value;
+  ADOQuery2.FieldByName('План_Б').Value :=excel.WorkBooks[1].WorkSheets[1].Range['C'+add].Value;
+  ADOQuery2.FieldByName('План_К').Value :=excel.WorkBooks[1].WorkSheets[1].Range['D'+add].Value;
   ADOQuery2.FieldByName('Коментар').Value :=excel.WorkBooks[1].WorkSheets[1].Range['E'+add].Value;
   ADOQuery2.FieldByName('Група').Value :=excel.WorkBooks[1].WorkSheets[1].Range['F'+add].Value;
   ADOQuery2.FieldByName('Дисципліна').Value :=excel.WorkBooks[1].WorkSheets[1].Range['G'+add].Value;
@@ -898,7 +988,7 @@ end;
 
 procedure TForm1.Button9Click(Sender: TObject);
 var
-  Result,test,all,zam:string;
+  Result,test,all,zam,grup:string;
   i,y:integer;
 begin
 
@@ -909,6 +999,7 @@ begin
      for i:=0 to ListBox2.Items.Count-1 do
    begin
    test:=ListBox2.Items[i];
+   grup:=test;
    all:=all+ListBox2.Items[i]+',';
 
     for y:=0 to Length(test) do  // Удаление "-" из диапазона
@@ -921,11 +1012,11 @@ begin
     ADOQuery7.Active:=true;
 
     ADOQuery7.Insert;
-    ADOQuery7.FieldByName('Поч дата').Value:=DateToStr(DateTimePicker1.Date);
-    ADOQuery7.FieldByName('Кін дата').Value:=DateToStr(DateTimePicker2.Date);
-    ADOQuery7.FieldByName('Вид навч').Value:=ComboBox1.Items[ComboBox1.ItemIndex];
+    ADOQuery7.FieldByName('Поч_дата').Value:=DateToStr(DateTimePicker1.Date);
+    ADOQuery7.FieldByName('Кін_дата').Value:=DateToStr(DateTimePicker2.Date);
+    ADOQuery7.FieldByName('Вид_навч').Value:=ComboBox1.Items[ComboBox1.ItemIndex];
     ADOQuery7.FieldByName('Комент').Value:=Edit3.Text;
-    ADOQuery7.FieldByName('Група').Value:=DBGrid6.Fields[1].Value;
+    ADOQuery7.FieldByName('Група').Value:=grup;
     ADOQuery7.Post;
 
    end;
@@ -1031,6 +1122,25 @@ begin
 
 end;
 
+procedure TForm1.DBGrid7DrawColumnCell(Sender: TObject; const [Ref] Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  if DBGrid7.DataSource.DataSet.FieldByName('Вид_навч').AsString='Практика' then
+    DBGrid7.Canvas.Brush.Color := $000DC10D
+    else DBGrid1.Canvas.Brush.Color := $00BFFFBF;
+
+  if DBGrid7.DataSource.DataSet.FieldByName('Вид_навч').AsString='Канікули' then
+    DBGrid7.Canvas.Brush.Color := $0019A2EE
+    else DBGrid1.Canvas.Brush.Color := $00BFFFBF;
+
+  if DBGrid7.DataSource.DataSet.FieldByName('Вид_навч').AsString='Сесія' then
+    DBGrid7.Canvas.Brush.Color := $0019A2EE
+    else DBGrid1.Canvas.Brush.Color := $00BFFFBF;
+
+
+  DBGrid7.DefaultDrawColumnCell(Rect,DataCol,Column,State);
+end;
+
 procedure TForm1.DBGrid8CellClick(Column: TColumn);
 var
   i: integer;
@@ -1045,12 +1155,12 @@ begin
   ADOQuery9.Active:=true;
 
 
-  DBGrid9.Columns[0].Width := 10; //ширина полей
-  DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 90; //ширина полей
-  DBGrid9.Columns[3].Width := 90; //ширина полей
-  DBGrid9.Columns[4].Width := 80; //ширина полей
-  DBGrid9.Columns[5].Width := 90; //ширина полей
+  DBGrid9.Columns[0].Width := 0; //ширина полей
+  DBGrid9.Columns[1].Width := 100; //ширина полей
+  DBGrid9.Columns[2].Width := 100; //ширина полей
+  DBGrid9.Columns[3].Width := 100; //ширина полей
+  DBGrid9.Columns[4].Width := 120; //ширина полей
+  DBGrid9.Columns[5].Width := 150; //ширина полей
 
 
 end;
@@ -1085,6 +1195,20 @@ ListBox1.Items.add(DBGrid8.Fields[1].Value);
 
 
 
+end;
+
+procedure TForm1.DBGrid9DrawColumnCell(Sender: TObject; const [Ref] Rect: TRect;
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+ if DBGrid9.DataSource.DataSet.FieldByName('Вид_заміни').AsString='Робоча субота' then
+    DBGrid9.Canvas.Brush.Color := $000DC10D
+    else DBGrid1.Canvas.Brush.Color := $00BFFFBF;
+
+ if DBGrid9.DataSource.DataSet.FieldByName('Вид_заміни').AsString='День на день' then
+    DBGrid9.Canvas.Brush.Color := $0067C76B
+    else DBGrid1.Canvas.Brush.Color := $00BFFFBF;
+
+  DBGrid9.DefaultDrawColumnCell(Rect,DataCol,Column,State);
 end;
 
 procedure TForm1.Edit2Change(Sender: TObject);
@@ -1239,12 +1363,59 @@ begin
     DBGrid9.DataSource:=DataSource9;
     DBNavigator9.DataSource:=DataSource9;
 
-  DBGrid9.Columns[0].Width := 10; //ширина полей
-  DBGrid9.Columns[1].Width := 80; //ширина полей
-  DBGrid9.Columns[2].Width := 90; //ширина полей
-  DBGrid9.Columns[3].Width := 90; //ширина полей
-  DBGrid9.Columns[4].Width := 80; //ширина полей
-  DBGrid9.Columns[5].Width := 90; //ширина полей
+  DBGrid9.Columns[0].Width := 0; //ширина полей
+  DBGrid9.Columns[1].Width := 100; //ширина полей
+  DBGrid9.Columns[2].Width := 100; //ширина полей
+  DBGrid9.Columns[3].Width := 100; //ширина полей
+  DBGrid9.Columns[4].Width := 120; //ширина полей
+  DBGrid9.Columns[5].Width := 150; //ширина полей
+
+  ////////////////////////////////////////////////
+     ADOConnection5.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+    ADOConnection5.LoginPrompt:=false;
+    ADOConnection5.Connected:=true;
+    ADOQuery5.Connection:=ADOConnection5;
+    ADOQuery5.SQL.Clear;
+    ADOQuery5.SQL.Add('SELECT * FROM zam');
+    ADOQuery5.Active:=true;
+    DataSource5.DataSet:=ADOQuery5;
+    DBGrid5.DataSource:=DataSource5;
+    DBNavigator5.DataSource:=DataSource5;
+
+  DBGrid5.Columns[0].Width := 0; //ширина полей
+  DBGrid5.Columns[1].Width := 70; //ширина полей
+  DBGrid5.Columns[2].Width := 70; //ширина полей
+  DBGrid5.Columns[3].Width := 70; //ширина полей
+  DBGrid5.Columns[4].Width := 70; //ширина полей
+  DBGrid5.Columns[5].Width := 70; //ширина полей
+  DBGrid5.Columns[6].Width := 70; //ширина полей
+  DBGrid5.Columns[7].Width := 70; //ширина полей
+  DBGrid5.Columns[8].Width := 70; //ширина полей
+
+
+
+  DBLookupComboBox1.DataField:= 'Група';
+  DBLookupComboBox1.DataSource:= DataSource5;
+  DBLookupComboBox1.KeyField:= 'Група';
+  DBLookupComboBox1.ListField:= 'Група';
+  DBLookupComboBox1.ListSource:= DataSource1;
+ // DBLookupComboBox1.TabOrder:= 4;
+
+
+  DBLookupComboBox2.DataField:= 'Ким_заміняємо';
+  DBLookupComboBox2.DataSource:= DataSource5;
+  DBLookupComboBox2.KeyField:= 'Викладач';
+  DBLookupComboBox2.ListField:= 'Викладач';
+  DBLookupComboBox2.ListSource:= DataSource4;
+ // DBLookupComboBox2.TabOrder:= 4;
+
+{DBLookupComboBox1.DataField:= 'поле, которое будет изменяться';
+  DBLookupComboBox1.DataSource:=DataS ource1;
+  DBLookupComboBox1.KeyField :='поле,которое будет вставляться в DataField '
+  DBLookupComboBox1.ListField:='поле , которое будет отображаться в выпадающем списке';
+DBLookupComboBox1.ListSource:=DataS ource2; }
+
+
 
 
 
@@ -1320,66 +1491,75 @@ begin
     DataSource4.DataSet:=ADOQuery4;
     DBGrid4.DataSource:=DataSource4;
     DBGrid4.ReadOnly:=true;
-  end;
-  {
-  if FileExists('teacher.mdb') then
-  begin
-    DB:=CoCatalog.Create;
-    DB.Set_ActiveConnection('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher.mdb');
-    //Список преподавателей
-    ADOConnection4.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher.mdb;';
-    ADOConnection4.LoginPrompt:=false;
-    ADOConnection4.Connected:=true;
-    ADOQuery4.Connection:=ADOConnection1;
-    ADOQuery4.SQL.Clear;
-    ADOQuery4.SQL.Add('SELECT * FROM thr');
-    ADOQuery4.Active:=true;
-    DataSource1.DataSet:=ADOQuery4;
-    DBGrid4.DataSource:=DataSource4;
-    DBGrid4.ReadOnly:=true;
-    DBNavigator1.DataSource:=DataSource4;
-    DBGrid4.DataSource.DataSet.RecNo;
-    DBGrid4.Fields[0].Value;
 
-    DBGrid1.Columns[0].Width := 0; //ширина полей
-    DBGrid1.Columns[1].Width := 80; //ширина полей
-  end
-  else
-  begin
-    DB:=CoCatalog.Create;
-    DB.Create('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher.mdb');
-    DB.Set_ActiveConnection('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher.mdb');
-    //Создание таблицы для преподавателей
-    ADOConnection4.Connected:=false;
-    Tables:=CoTable.Create;
-    Tables.Name:='thr';
-    Tables.ParentCatalog:=DB;
-    DB.Tables.Append(Tables);
-    Columns:=CoColumn.Create;
-    with Columns do
-    begin
-      ParentCatalog:=DB;
-      Name:='id';
-      type_:=adInteger;
-      Properties['Autoincrement'].Value:=True;
-      Properties['Description'].Value:='Ключевое поле';
-    end;
-    Tables.Columns.Append('IDВикладача',adVarWChar,255);
-    Tables.Columns.Append('Викладач',adVarWChar,255);
-    ADOConnection4.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=teacher.mdb;';
-    ADOConnection4.LoginPrompt:=false;
-    ADOConnection4.Connected:=true;
-    ADOQuery4.Connection:=ADOConnection4;
-    ADOQuery4.SQL.Clear;
-    ADOQuery4.SQL.Add('SELECT * FROM thr');
-    ADOQuery4.Active:=true;
-    DataSource4.DataSet:=ADOQuery4;
-    DBGrid4.DataSource:=DataSource4;
-    DBGrid4.ReadOnly:=true;
-  end;
-  }
-  //bControl1Change(TabControl1);
+    // Создание таблицы замен учителей
 
+  ADOConnection5.Connected:=false;
+
+  Tables:=CoTable.Create;
+  Tables.Name:='zam';
+
+  Tables.ParentCatalog:=DB;
+  DB.Tables.Append(Tables);
+  Columns:=CoColumn.Create;
+  with Columns do
+  begin
+    ParentCatalog:=DB;
+    Name:='id';
+    type_:=adInteger;
+    Properties['Autoincrement'].Value:=True;
+    Properties['Description'].Value:='Ключевое поле';
+  end;
+
+  Tables.Columns.Append(Columns,0,0);
+  Tables.Columns.Append('Дата',adVarWChar,255);
+  Tables.Columns.Append('Група',adVarWChar,255);
+  Tables.Columns.Append('№_ленты',adVarWChar,255);
+  Tables.Columns.Append('Ким_заміняємо',adVarWChar,255);
+  Tables.Columns.Append('Предмет1',adVarWChar,255);
+  Tables.Columns.Append('Кого заміняємо',adVarWChar,255);
+  Tables.Columns.Append('Предмет2',adVarWChar,255);
+  Tables.Columns.Append('Аудиторія',adVarWChar,255);
+
+
+
+   ADOConnection5.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+    ADOConnection5.LoginPrompt:=false;
+    ADOConnection5.Connected:=true;
+    ADOQuery5.Connection:=ADOConnection5;
+    ADOQuery5.SQL.Clear;
+    ADOQuery5.SQL.Add('SELECT * FROM zam');
+    ADOQuery5.Active:=true;
+    DataSource5.DataSet:=ADOQuery5;
+    DBGrid5.DataSource:=DataSource5;
+    DBNavigator5.DataSource:=DataSource5;
+
+
+  DBGrid5.Columns[0].Width := 0; //ширина полей
+  DBGrid5.Columns[1].Width := 70; //ширина полей
+  DBGrid5.Columns[2].Width := 70; //ширина полей
+  DBGrid5.Columns[3].Width := 70; //ширина полей
+  DBGrid5.Columns[4].Width := 70; //ширина полей
+  DBGrid5.Columns[5].Width := 70; //ширина полей
+  DBGrid5.Columns[6].Width := 70; //ширина полей
+  DBGrid5.Columns[7].Width := 70; //ширина полей
+  DBGrid5.Columns[8].Width := 70; //ширина полей
+
+
+
+
+
+
+
+  //////////////////////////////////////////////////////////////////
+
+
+  end;
+
+
+
+
+  //////////////////////////////////////////////////////////////////
 
 
 
