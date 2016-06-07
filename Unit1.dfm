@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 439
-  Top = 219
+  Left = 244
+  Top = 110
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Form1'
-  ClientHeight = 562
+  ClientHeight = 587
   ClientWidth = 1087
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -12,6 +12,7 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesigned
   OnCreate = Form1Create
@@ -20,13 +21,118 @@ object Form1: TForm1
   TextHeight = 13
   object PageControl1: TPageControl
     Left = 0
-    Top = 0
-    Width = 1089
+    Top = 1
+    Width = 1097
     Height = 561
-    ActivePage = TabSheet2
+    ActivePage = TabSheet9
     TabOrder = 0
+    object TabSheet9: TTabSheet
+      Caption = #1053#1072#1083#1072#1096#1090#1091#1074#1072#1085#1085#1103
+      ImageIndex = 5
+      object Label21: TLabel
+        Left = 52
+        Top = 16
+        Width = 120
+        Height = 13
+        Caption = #1042#1082#1072#1078#1110#1090#1100' '#1085#1072#1074#1095#1072#1083#1100#1085#1080#1081' '#1088#1110#1082
+      end
+      object Label22: TLabel
+        Left = 3
+        Top = 133
+        Width = 153
+        Height = 13
+        Caption = #1055#1077#1088#1077#1083#1110#1082' '#1091#1089#1110#1093' '#1085#1072#1074#1095#1072#1083#1100#1085#1080#1093' '#1088#1086#1082#1110#1074
+      end
+      object Label23: TLabel
+        Left = 256
+        Top = 16
+        Width = 146
+        Height = 13
+        Caption = #1042#1082#1072#1078#1110#1090#1100' '#1085#1072#1074#1095#1072#1083#1100#1085#1080#1081' '#1089#1077#1084#1077#1089#1090#1088
+      end
+      object DateTimePicker7: TDateTimePicker
+        Left = 44
+        Top = 35
+        Width = 65
+        Height = 21
+        Date = 42528.562290185180000000
+        Format = 'yyyy'
+        Time = 42528.562290185180000000
+        DateMode = dmUpDown
+        DoubleBuffered = False
+        ParentDoubleBuffered = False
+        TabOrder = 0
+      end
+      object DateTimePicker8: TDateTimePicker
+        Left = 123
+        Top = 35
+        Width = 65
+        Height = 21
+        Date = 42528.564100289350000000
+        Format = 'yyyy'
+        Time = 42528.564100289350000000
+        DateMode = dmUpDown
+        TabOrder = 1
+      end
+      object Button23: TButton
+        Left = 256
+        Top = 88
+        Width = 193
+        Height = 81
+        Caption = #1057#1090#1074#1086#1088#1080#1090#1080' '#1073#1072#1079#1091' '#1076#1072#1085#1080#1093
+        TabOrder = 2
+        OnClick = Button23Click
+      end
+      object Button24: TButton
+        Left = 3
+        Top = 463
+        Width = 169
+        Height = 25
+        Caption = #1042#1080#1076#1072#1083#1080#1090#1080' '#1073#1072#1079#1091' '#1076#1072#1085#1080#1093
+        TabOrder = 3
+      end
+      object DBGrid10: TDBGrid
+        Left = 3
+        Top = 152
+        Width = 169
+        Height = 305
+        TabOrder = 4
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+      object RadioButton3: TRadioButton
+        Left = 256
+        Top = 35
+        Width = 57
+        Height = 17
+        Caption = #1055#1077#1088#1096#1080#1081
+        Checked = True
+        TabOrder = 5
+        TabStop = True
+      end
+      object RadioButton4: TRadioButton
+        Left = 345
+        Top = 35
+        Width = 57
+        Height = 17
+        Caption = #1044#1088#1091#1075#1080#1081
+        TabOrder = 6
+      end
+      object Button25: TButton
+        Left = 272
+        Top = 229
+        Width = 177
+        Height = 25
+        Caption = #1042#1082#1072#1079#1072#1090#1080' Excel '#1092#1072#1081#1083
+        TabOrder = 7
+      end
+    end
     object TabSheet1: TTabSheet
       Caption = #1043#1088#1091#1087#1080
+      ExplicitWidth = 1081
       object Label12: TLabel
         Left = 38
         Top = 4
@@ -101,7 +207,7 @@ object Form1: TForm1
         TabOrder = 5
       end
       object DBGrid2: TDBGrid
-        Left = 118
+        Left = 112
         Top = 176
         Width = 561
         Height = 354
@@ -183,6 +289,8 @@ object Form1: TForm1
     object TabSheet2: TTabSheet
       Caption = #1042#1080#1082#1083#1072#1076#1072#1095#1110
       ImageIndex = 1
+      ExplicitLeft = 1
+      ExplicitTop = 28
       object Label11: TLabel
         Left = 49
         Top = 9
@@ -201,7 +309,7 @@ object Form1: TForm1
       object DBGrid4: TDBGrid
         Left = 0
         Top = 61
-        Width = 121
+        Width = 118
         Height = 476
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
@@ -228,9 +336,10 @@ object Form1: TForm1
         TabOrder = 3
         object TabSheet6: TTabSheet
           Caption = #1047#1072#1084#1110#1085#1072
-          ExplicitLeft = -236
-          ExplicitTop = 27
-          ExplicitWidth = 1070
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label13: TLabel
             Left = 57
             Top = 13
@@ -254,35 +363,35 @@ object Form1: TForm1
           end
           object Label16: TLabel
             Left = 46
-            Top = 151
+            Top = 183
             Width = 71
             Height = 13
             Caption = #1050#1080#1084' '#1079#1072#1084#1085#1102#1108#1084#1086
           end
           object Label17: TLabel
             Left = 49
-            Top = 197
+            Top = 229
             Width = 44
             Height = 13
             Caption = #1055#1088#1077#1076#1084#1077#1090
           end
           object Label18: TLabel
             Left = 42
-            Top = 243
+            Top = 267
             Width = 75
             Height = 13
             Caption = #1050#1086#1075#1086' '#1079#1072#1084#1110#1085#1103#1108#1084#1086
           end
           object Label19: TLabel
             Left = 49
-            Top = 289
+            Top = 313
             Width = 44
             Height = 13
             Caption = #1055#1088#1077#1076#1084#1077#1090
           end
           object Label20: TLabel
-            Left = 47
-            Top = 335
+            Left = 46
+            Top = 370
             Width = 52
             Height = 13
             Caption = #1040#1091#1076#1080#1090#1086#1088#1110#1103
@@ -319,36 +428,35 @@ object Form1: TForm1
           end
           object DBLookupComboBox2: TDBLookupComboBox
             Left = 16
-            Top = 170
+            Top = 202
             Width = 126
             Height = 21
             TabOrder = 3
           end
           object DBLookupComboBox3: TDBLookupComboBox
             Left = 16
-            Top = 216
+            Top = 248
             Width = 126
             Height = 21
             TabOrder = 4
           end
           object DBLookupComboBox5: TDBLookupComboBox
             Left = 16
-            Top = 308
+            Top = 332
             Width = 126
             Height = 21
             TabOrder = 5
           end
-          object Edit7: TEdit
+          object TEdit
             Left = 16
-            Top = 354
+            Top = 389
             Width = 126
             Height = 21
             TabOrder = 6
-            Text = 'Edit7'
           end
           object DBLookupComboBox4: TDBLookupComboBox
             Left = 16
-            Top = 262
+            Top = 286
             Width = 126
             Height = 21
             TabOrder = 7
@@ -357,7 +465,7 @@ object Form1: TForm1
             Left = 160
             Top = 78
             Width = 793
-            Height = 367
+            Height = 371
             TabOrder = 8
             TitleFont.Charset = DEFAULT_CHARSET
             TitleFont.Color = clWindowText
@@ -372,28 +480,98 @@ object Form1: TForm1
             Height = 18
             TabOrder = 9
           end
+          object Button16: TButton
+            Left = 16
+            Top = 416
+            Width = 126
+            Height = 29
+            Caption = #1044#1086#1076#1072#1090#1080
+            TabOrder = 10
+            OnClick = Button16Click
+          end
+          object ComboBox3: TComboBox
+            Left = 16
+            Top = 151
+            Width = 126
+            Height = 21
+            Style = csDropDownList
+            TabOrder = 11
+            Items.Strings = (
+              #1055#1077#1088#1096#1091
+              #1044#1088#1091#1075#1091
+              #1058#1088#1077#1090#1102
+              #1063#1077#1090#1074#1077#1088#1090#1091
+              #1055'`'#1103#1090#1091)
+          end
+          object Edit8: TEdit
+            Left = 160
+            Top = 16
+            Width = 121
+            Height = 21
+            TabOrder = 12
+            Text = 'Edit8'
+          end
         end
         object TabSheet7: TTabSheet
           Caption = #1055#1088#1077#1076#1084#1077#1090' '#1085#1072' '#1087#1088#1077#1076#1084#1077#1090
           ImageIndex = 1
-          ExplicitLeft = -20
-          ExplicitTop = 32
-          ExplicitWidth = 281
-          ExplicitHeight = 165
         end
         object TabSheet8: TTabSheet
           Caption = #1047#1072#1084#1110#1085#1072' '#1074#1110#1076#1087#1088#1072#1094#1102#1074#1072#1085#1085#1103#1084
           ImageIndex = 2
-          ExplicitLeft = 15
-          ExplicitTop = 64
-          ExplicitWidth = 577
-          ExplicitHeight = 326
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
+          object ComboBox4: TComboBox
+            Left = 3
+            Top = 72
+            Width = 121
+            Height = 21
+            TabOrder = 0
+            Text = 'ComboBox4'
+          end
+          object DateTimePicker6: TDateTimePicker
+            Left = 3
+            Top = 29
+            Width = 121
+            Height = 21
+            Date = 42527.576763888890000000
+            Time = 42527.576763888890000000
+            TabOrder = 1
+          end
+          object DBLookupComboBox6: TDBLookupComboBox
+            Left = 3
+            Top = 112
+            Width = 121
+            Height = 21
+            TabOrder = 2
+          end
+          object DBLookupComboBox7: TDBLookupComboBox
+            Left = 3
+            Top = 139
+            Width = 121
+            Height = 21
+            TabOrder = 3
+          end
+          object Edit7: TEdit
+            Left = 3
+            Top = 176
+            Width = 121
+            Height = 21
+            TabOrder = 4
+            Text = 'Edit7'
+          end
         end
       end
     end
     object TabSheet3: TTabSheet
       Caption = #1043#1088#1072#1092#1110#1082' '#1085#1072#1074#1095'. '#1087#1088#1086#1094#1077#1089#1091
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label1: TLabel
         Left = 177
         Top = 145
@@ -561,11 +739,23 @@ object Form1: TForm1
     object TabSheet4: TTabSheet
       Caption = #1056#1086#1079#1082#1083#1072#1076
       ImageIndex = 3
+      ExplicitWidth = 1081
+      object MonthCalendar1: TMonthCalendar
+        Left = 3
+        Top = 64
+        Width = 191
+        Height = 160
+        Date = 42528.537816817130000000
+        TabOrder = 0
+      end
     end
     object TabSheet5: TTabSheet
-      Caption = #1047#1072#1084#1077#1085#1099
+      Caption = #1047#1072#1084#1110#1085#1080
       ImageIndex = 4
-      ExplicitWidth = 1085
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label7: TLabel
         Left = 163
         Top = 57
@@ -648,9 +838,9 @@ object Form1: TForm1
       end
       object DBGrid9: TDBGrid
         Left = 352
-        Top = 137
-        Width = 729
-        Height = 393
+        Top = 172
+        Width = 731
+        Height = 358
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -710,7 +900,7 @@ object Form1: TForm1
       end
       object DBNavigator9: TDBNavigator
         Left = 352
-        Top = 118
+        Top = 148
         Width = 720
         Height = 18
         TabOrder = 10
@@ -741,7 +931,7 @@ object Form1: TForm1
         Top = 52
         Width = 193
         Height = 25
-        Caption = #1055#1077#1088#1077#1083#1110#1082' '#1089#1091#1073#1086#1090
+        Caption = #1055#1077#1088#1077#1083#1110#1082' '#1089#1091#1073#1086#1090' ('#1085#1077' '#1088#1072#1073')'
         TabOrder = 13
         OnClick = Button13Click
       end
@@ -750,7 +940,7 @@ object Form1: TForm1
         Top = 83
         Width = 193
         Height = 25
-        Caption = #1055#1077#1088#1077#1083#1110#1082' '#1076#1085#1110#1074' '#1079' '#1079#1072#1084#1110#1085#1072#1084#1080
+        Caption = #1055#1077#1088#1077#1083#1110#1082' '#1076#1085#1110#1074' '#1079' '#1079#1072#1084#1110#1085#1072#1084#1080' ('#1085#1077' '#1088#1072#1073')'
         TabOrder = 14
         OnClick = Button14Click
       end
@@ -759,10 +949,90 @@ object Form1: TForm1
         Top = 68
         Width = 193
         Height = 25
-        Caption = 'C'#1082#1080#1085#1091#1090#1080' '#1092#1110#1083#1100#1090#1088#1080
+        Caption = 'C'#1082#1080#1085#1091#1090#1080' '#1092#1110#1083#1100#1090#1088#1080'('#1085#1077' '#1088#1072#1073')'
         TabOrder = 15
       end
+      object Edit9: TEdit
+        Left = 248
+        Top = 30
+        Width = 121
+        Height = 21
+        TabOrder = 16
+        Text = 'Edit9'
+      end
     end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 568
+    Width = 1087
+    Height = 19
+    Panels = <
+      item
+        Text = #1044#1072#1090#1072
+        Width = 100
+      end
+      item
+        Text = #1042#1088#1077#1084#1103
+        Width = 50
+      end>
+    OnHint = StatusBar1Hint
+    ExplicitLeft = 4
+    ExplicitTop = 590
+  end
+  object Button17: TButton
+    Left = 824
+    Top = 254
+    Width = 161
+    Height = 25
+    Caption = #1043#1088#1091#1087#1080
+    TabOrder = 2
+    Visible = False
+  end
+  object Button18: TButton
+    Left = 824
+    Top = 285
+    Width = 161
+    Height = 25
+    Caption = 'Button18'
+    TabOrder = 3
+    Visible = False
+  end
+  object Button19: TButton
+    Left = 824
+    Top = 316
+    Width = 161
+    Height = 25
+    Caption = 'Button19'
+    TabOrder = 4
+    Visible = False
+  end
+  object Button20: TButton
+    Left = 824
+    Top = 347
+    Width = 161
+    Height = 25
+    Caption = 'Button20'
+    TabOrder = 5
+    Visible = False
+  end
+  object Button21: TButton
+    Left = 824
+    Top = 378
+    Width = 161
+    Height = 25
+    Caption = 'Button21'
+    TabOrder = 6
+    Visible = False
+  end
+  object Button22: TButton
+    Left = 824
+    Top = 409
+    Width = 161
+    Height = 25
+    Caption = 'Button22'
+    TabOrder = 7
+    Visible = False
   end
   object ADOConnection1: TADOConnection
     Left = 616
@@ -837,5 +1107,29 @@ object Form1: TForm1
   object ADOQuery9: TADOQuery
     Parameters = <>
     Left = 824
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 716
+    Top = 6
+  end
+  object MainMenu1: TMainMenu
+    Left = 504
+    object N1: TMenuItem
+      Caption = #1043#1086#1083#1086#1074#1085#1077' '#1084#1077#1085#1102
+      OnClick = N1Click
+    end
+    object N7: TMenuItem
+      Caption = #1053#1072#1083#1072#1096#1090#1091#1074#1072#1085#1085#1103
+    end
+    object N8: TMenuItem
+      Caption = #1055#1088#1086' '#1087#1088#1086#1075#1088#1072#1084#1091
+    end
+    object N9: TMenuItem
+      Caption = #1044#1086#1074#1110#1076#1082#1072
+    end
+    object N10: TMenuItem
+      Caption = #1042#1080#1093#1110#1076
+    end
   end
 end

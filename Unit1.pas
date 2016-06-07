@@ -10,19 +10,6 @@ uses
 
 type
   TForm1 = class(TForm)
-    DBGrid1: TDBGrid;
-    DBGrid2: TDBGrid;
-    DBGrid3: TDBGrid;
-    DBGrid4: TDBGrid;
-    DBGrid5: TDBGrid;
-    Button1: TButton;
-    Edit1: TEdit;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Button5: TButton;
-    DBNavigator1: TDBNavigator;
-    DBNavigator2: TDBNavigator;
     ADOConnection1: TADOConnection;
     DataSource1: TDataSource;
     ADOQuery1: TADOQuery;
@@ -38,76 +25,37 @@ type
     ADOConnection5: TADOConnection;
     DataSource5: TDataSource;
     ADOQuery5: TADOQuery;
-    Edit2: TEdit;
-    Panel1: TPanel;
-    Button7: TButton;
-    Button8: TButton;
-    PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
-    TabSheet3: TTabSheet;
-    TabSheet4: TTabSheet;
-    DateTimePicker1: TDateTimePicker;
-    DateTimePicker2: TDateTimePicker;
-    Label1: TLabel;
-    Label2: TLabel;
-    Edit3: TEdit;
     OpenDialog1: TOpenDialog;
-    ComboBox1: TComboBox;
-    Label3: TLabel;
-    Label4: TLabel;
-    DBGrid6: TDBGrid;
-    Button9: TButton;
-    DBGrid7: TDBGrid;
     ADOConnection7: TADOConnection;
     DataSource7: TDataSource;
     ADOQuery7: TADOQuery;
-    Panel2: TPanel;
-    DBNavigator7: TDBNavigator;
-    TabSheet5: TTabSheet;
-    DBGrid8: TDBGrid;
-    DateTimePicker3: TDateTimePicker;
-    Button10: TButton;
-    Edit4: TEdit;
-    DBGrid9: TDBGrid;
-    ListBox1: TListBox;
     ADOConnection9: TADOConnection;
     DataSource9: TDataSource;
     ADOQuery9: TADOQuery;
-    DBNavigator9: TDBNavigator;
-    Panel3: TPanel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
-    Button11: TButton;
-    RadioButton1: TRadioButton;
-    RadioButton2: TRadioButton;
-    DateTimePicker4: TDateTimePicker;
-    Label9: TLabel;
-    ListBox2: TListBox;
-    Label10: TLabel;
-    Label11: TLabel;
-    Edit5: TEdit;
-    Button6: TButton;
-    Button12: TButton;
-    Edit6: TEdit;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
     Label12: TLabel;
-    Button13: TButton;
-    Button14: TButton;
-    Button15: TButton;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button8: TButton;
+    Panel1: TPanel;
+    DBNavigator2: TDBNavigator;
+    DBGrid2: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    Button5: TButton;
+    Edit1: TEdit;
+    Button7: TButton;
+    DBGrid3: TDBGrid;
+    DBGrid1: TDBGrid;
+    Edit6: TEdit;
+    TabSheet2: TTabSheet;
+    Label11: TLabel;
+    Edit2: TEdit;
+    DBGrid4: TDBGrid;
+    Button4: TButton;
     PageControl2: TPageControl;
     TabSheet6: TTabSheet;
-    TabSheet7: TTabSheet;
-    TabSheet8: TTabSheet;
-    DateTimePicker5: TDateTimePicker;
-    DBLookupComboBox1: TDBLookupComboBox;
-    ComboBox2: TComboBox;
-    DBLookupComboBox2: TDBLookupComboBox;
-    DBLookupComboBox3: TDBLookupComboBox;
-    DBLookupComboBox5: TDBLookupComboBox;
-    Edit7: TEdit;
-    DBLookupComboBox4: TDBLookupComboBox;
     Label13: TLabel;
     Label14: TLabel;
     Label15: TLabel;
@@ -116,7 +64,94 @@ type
     Label18: TLabel;
     Label19: TLabel;
     Label20: TLabel;
+    DateTimePicker5: TDateTimePicker;
+    DBLookupComboBox1: TDBLookupComboBox;
+    ComboBox2: TComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    DBLookupComboBox5: TDBLookupComboBox;
+    DBLookupComboBox4: TDBLookupComboBox;
+    DBGrid5: TDBGrid;
     DBNavigator5: TDBNavigator;
+    Button16: TButton;
+    ComboBox3: TComboBox;
+    Edit8: TEdit;
+    TabSheet7: TTabSheet;
+    TabSheet8: TTabSheet;
+    ComboBox4: TComboBox;
+    DateTimePicker6: TDateTimePicker;
+    DBLookupComboBox6: TDBLookupComboBox;
+    DBLookupComboBox7: TDBLookupComboBox;
+    Edit7: TEdit;
+    TabSheet3: TTabSheet;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label10: TLabel;
+    DateTimePicker1: TDateTimePicker;
+    Edit3: TEdit;
+    ComboBox1: TComboBox;
+    Button9: TButton;
+    DBGrid6: TDBGrid;
+    DBGrid7: TDBGrid;
+    Panel2: TPanel;
+    DBNavigator7: TDBNavigator;
+    DateTimePicker2: TDateTimePicker;
+    ListBox2: TListBox;
+    Edit5: TEdit;
+    Button6: TButton;
+    TabSheet4: TTabSheet;
+    MonthCalendar1: TMonthCalendar;
+    TabSheet5: TTabSheet;
+    Label7: TLabel;
+    Label6: TLabel;
+    Label9: TLabel;
+    Label8: TLabel;
+    Label5: TLabel;
+    ListBox1: TListBox;
+    DateTimePicker4: TDateTimePicker;
+    DateTimePicker3: TDateTimePicker;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    DBGrid9: TDBGrid;
+    Button10: TButton;
+    Button11: TButton;
+    Panel3: TPanel;
+    Button12: TButton;
+    DBNavigator9: TDBNavigator;
+    Edit4: TEdit;
+    DBGrid8: TDBGrid;
+    Button13: TButton;
+    Button14: TButton;
+    Button15: TButton;
+    Edit9: TEdit;
+    StatusBar1: TStatusBar;
+    Timer1: TTimer;
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N7: TMenuItem;
+    N8: TMenuItem;
+    N9: TMenuItem;
+    N10: TMenuItem;
+    Button17: TButton;
+    Button18: TButton;
+    Button19: TButton;
+    Button20: TButton;
+    Button21: TButton;
+    Button22: TButton;
+    TabSheet9: TTabSheet;
+    Label21: TLabel;
+    DateTimePicker7: TDateTimePicker;
+    DateTimePicker8: TDateTimePicker;
+    Button23: TButton;
+    Button24: TButton;
+    DBGrid10: TDBGrid;
+    Label22: TLabel;
+    Label23: TLabel;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
+    Button25: TButton;
     procedure Button5Click(Sender: TObject);
     procedure Form1Destroy(Sender: TObject);
     procedure Form1Create(Sender: TObject);
@@ -147,6 +182,21 @@ type
     procedure Button14Click(Sender: TObject);
     procedure DBGrid7DrawColumnCell(Sender: TObject; const [Ref] Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure Button16Click(Sender: TObject);
+    procedure Button17Click(Sender: TObject);
+    procedure StatusBar1Hint(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure N1Click(Sender: TObject);
+    procedure Button23Click(Sender: TObject);
+    procedure DBGrid1Width();
+    procedure DBGrid2Width();
+    procedure DBGrid3Width();
+    procedure DBGrid4Width();
+    procedure DBGrid5Width();
+    procedure DBGrid6Width();
+    procedure DBGrid7Width();
+    procedure DBGrid8Width();
+    procedure DBGrid9Width();
 
 
   private
@@ -164,6 +214,83 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.DBGrid1Width();   //Функция для установки ширини полей таблицы
+begin
+    DBGrid1.Columns[0].Width := 0; //ширина полей
+    DBGrid1.Columns[1].Width := 80; //ширина полей
+end;
+
+procedure TForm1.DBGrid2Width();   //Функция для установки ширини полей таблицы
+begin
+    DBGrid2.Columns[0].Width := 30; //ширина полей
+    DBGrid2.Columns[1].Width := 40; //ширина полей
+    DBGrid2.Columns[2].Width := 40; //ширина полей
+    DBGrid2.Columns[3].Width := 70; //ширина полей
+    DBGrid2.Columns[4].Width := 0; //ширина полей
+    DBGrid2.Columns[5].Width := 120; //ширина полей
+    DBGrid2.Columns[6].Width := 120; //ширина полей
+    DBGrid2.Columns[7].Width := 80; //ширина полей
+end;
+
+procedure TForm1.DBGrid3Width();   //Функция для установки ширини полей таблицы
+var
+  i:integer;
+begin
+    for i := 0 to 23 do DBGrid3.Columns[i].Width := 15; //ширина полей
+end;
+
+procedure TForm1.DBGrid4Width();   //Функция для установки ширини полей таблицы
+begin
+    DBGrid4.Columns[0].Width := 0; //ширина полей
+    DBGrid4.Columns[1].Width := 80; //ширина полей
+end;
+
+procedure TForm1.DBGrid5Width();   //Функция для установки ширини полей таблицы
+begin
+    DBGrid5.Columns[0].Width := 0; //ширина полей
+    DBGrid5.Columns[1].Width := 70; //ширина полей
+    DBGrid5.Columns[2].Width := 70; //ширина полей
+    DBGrid5.Columns[3].Width := 70; //ширина полей
+    DBGrid5.Columns[4].Width := 70; //ширина полей
+    DBGrid5.Columns[5].Width := 70; //ширина полей
+    DBGrid5.Columns[6].Width := 70; //ширина полей
+    DBGrid5.Columns[7].Width := 70; //ширина полей
+    DBGrid5.Columns[8].Width := 70; //ширина полей
+end;
+
+procedure TForm1.DBGrid6Width();   //Функция для установки ширини полей таблицы
+begin
+    DBGrid6.Columns[0].Width := 0; //ширина полей
+    DBGrid6.Columns[1].Width := 80; //ширина полей
+end;
+
+procedure TForm1.DBGrid7Width();   //Функция для установки ширини полей таблицы
+begin
+    DBGrid7.Columns[0].Width := 0; //ширина полей
+    DBGrid7.Columns[1].Width := 80; //ширина полей
+    DBGrid7.Columns[2].Width := 80; //ширина полей
+    DBGrid7.Columns[3].Width := 80; //ширина полей
+    DBGrid7.Columns[4].Width := 80; //ширина полей
+end;
+
+procedure TForm1.DBGrid8Width();   //Функция для установки ширини полей таблицы
+begin
+    DBGrid8.Columns[0].Width := 0; //ширина полей
+    DBGrid8.Columns[1].Width := 80; //ширина полей
+end;
+
+procedure TForm1.DBGrid9Width();   //Функция для установки ширини полей таблицы
+begin
+    DBGrid9.Columns[0].Width := 0; //ширина полей
+    DBGrid9.Columns[1].Width := 100; //ширина полей
+    DBGrid9.Columns[2].Width := 100; //ширина полей
+    DBGrid9.Columns[3].Width := 100; //ширина полей
+    DBGrid9.Columns[4].Width := 120; //ширина полей
+    DBGrid9.Columns[5].Width := 150; //ширина полей
+end;
+
+
 
 procedure TForm1.Button10Click(Sender: TObject);
 var
@@ -245,26 +372,25 @@ begin
 
 
 
-  DBGrid9.Columns[0].Width := 0; //ширина полей
-  DBGrid9.Columns[1].Width := 100; //ширина полей
-  DBGrid9.Columns[2].Width := 100; //ширина полей
-  DBGrid9.Columns[3].Width := 100; //ширина полей
-  DBGrid9.Columns[4].Width := 120; //ширина полей
-  DBGrid9.Columns[5].Width := 150; //ширина полей
+  DBGrid9Width();
 
 
 end;
+
+
 
 procedure TForm1.Button11Click(Sender: TObject);
 var
 kol,i:integer;
 begin
   kol:=ADOQuery1.RecordCount;
+  ADOQuery1.FindFirst;
+  edit9.Text:= DBGrid8.Fields[0].Value;
 
    for i:=0 to kol-1 do
    begin
-  //  DBGrid1.SelectedIndex:=3;
-  DBGrid8.Fields[1].Value;
+    ADOQuery1.FindFirst;
+    DBGrid8.Fields[0].Value;
  // ListBox1.Items.add(DBGrid1.);
 
 
@@ -281,42 +407,51 @@ end;
 procedure TForm1.Button13Click(Sender: TObject);
 var
   kol,i:integer;
+  mycell:string;
 begin
   kol:=ADOQuery1.RecordCount;
 
 
+  ADOQuery1.FindFirst;
+  ADOQuery9.SQL.Clear;
+   ADOQuery9.SQL.Add('SELECT * FROM ТВ141subb FULL JOIN ТВ142subb');
+   // );
+  // ADOQuery9.SQL.Add('SELECT * FROM ТВ142subb WHERE Вид_заміни = ''Робоча субота''');
+    ADOQuery9.Active:=true;
 
- { for i:=0 to kol do
+  {for i:=0 to kol do
     begin
-    ADOQuery9.SQL.Clear;
-   ADOQuery9.SQL.Add('SELECT * FROM ТВ15п1subb WHERE Вид заміни = ''Робоча субота''');
+  ADOQuery9.SQL.Clear;
+   ADOQuery9.SQL.Add('SELECT * FROM '+DBGrid8.Fields[0].Value+'subb WHERE Вид_заміни = ''Робоча субота''');
   ADOQuery9.Active:=true;
-    end;}
+
+  ADOQuery1.FindNext;
+    end;
 
 
 
 
-DBGrid8.DataSource.DataSet.RecNo;
-  DBGrid8.Fields[0].Value;
+  //DBGrid8.DataSource.DataSet.RecNo;
+ // DBGrid8.Fields[0].Value;
 
   Panel3.Caption:='Група '+DBGrid8.Fields[1].Value;
 
 
-  ADOQuery9.SQL.Clear;
+ { ADOQuery9.SQL.Clear;
   ADOQuery9.SQL.Add('SELECT * FROM ТВ15п1subb WHERE Вид_заміни = ''Робоча субота''');
-  ADOQuery9.Active:=true;
+  ADOQuery9.Active:=true; }
 
  // ADOQuery1.SQL.Clear;
  //  ADOQuery1.SQL.Add('SELECT * FROM Test WHERE names=''Andrey''');
  //  ADOQuery1.Active:=True;
 
 
-  DBGrid9.Columns[0].Width := 0; //ширина полей
-  DBGrid9.Columns[1].Width := 100; //ширина полей
-  DBGrid9.Columns[2].Width := 100; //ширина полей
-  DBGrid9.Columns[3].Width := 100; //ширина полей
-  DBGrid9.Columns[4].Width := 120; //ширина полей
-  DBGrid9.Columns[5].Width := 150; //ширина полей
+
+
+  DBGrid9Width();
+
+
+
 end;
 
 procedure TForm1.Button14Click(Sender: TObject);
@@ -325,12 +460,24 @@ begin
   ADOQuery9.SQL.Add('SELECT * FROM ТВ15п1subb WHERE Вид_заміни = ''День на день''');
   ADOQuery9.Active:=true;
 
-  DBGrid9.Columns[0].Width := 0; //ширина полей
-  DBGrid9.Columns[1].Width := 100; //ширина полей
-  DBGrid9.Columns[2].Width := 100; //ширина полей
-  DBGrid9.Columns[3].Width := 100; //ширина полей
-  DBGrid9.Columns[4].Width := 120; //ширина полей
-  DBGrid9.Columns[5].Width := 150; //ширина полей
+  DBGrid9Width();
+end;
+
+procedure TForm1.Button16Click(Sender: TObject);
+begin
+  Edit8.text:=DBLookupComboBox1.KeyField;
+
+
+  {  DBLookupComboBox1.DataField:= 'Група';
+  DBLookupComboBox1.DataSource:= DataSource5;
+  DBLookupComboBox1.KeyField:= 'Група';
+  DBLookupComboBox1.ListField:= 'Група';
+  DBLookupComboBox1.ListSource:= DataSource1; }
+end;
+
+procedure TForm1.Button17Click(Sender: TObject);
+begin
+ PageControl1.Visible:=false;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject); //Кнопка открытия Exel файла
@@ -340,6 +487,151 @@ begin
   excel.WorkBooks.Open(OpenDialog1.FileName);
   excel.Visible:=true;
 end;
+
+procedure TForm1.Button23Click(Sender: TObject);
+begin
+    DB:=CoCatalog.Create;
+    DB.Create('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb');
+    DB.Set_ActiveConnection('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb');
+
+
+    //Создание таблицы для групп
+    ADOConnection1.Connected:=false;
+    Tables:=CoTable.Create;
+    Tables.Name:='grp';
+    Tables.ParentCatalog:=DB;
+    DB.Tables.Append(Tables);
+    Columns:=CoColumn.Create;
+    with Columns do
+    begin
+      ParentCatalog:=DB;
+      Name:='id';
+      type_:=adInteger;
+      Properties['Autoincrement'].Value:=True;
+      Properties['Description'].Value:='Ключевое поле';
+    end;
+    Tables.Columns.Append('IDГруп',adVarWChar,255);
+    Tables.Columns.Append('Група',adVarWChar,255);
+
+
+
+    ADOConnection1.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+    ADOConnection1.LoginPrompt:=false;
+    ADOConnection1.Connected:=true;
+    ADOQuery1.Connection:=ADOConnection1;
+    ADOQuery1.SQL.Clear;
+    ADOQuery1.SQL.Add('SELECT * FROM grp');
+    ADOQuery1.Active:=true;
+    DataSource1.DataSet:=ADOQuery1;
+    DBGrid1.DataSource:=DataSource1;
+    DBNavigator1.DataSource:=DataSource1;
+    DBGrid1.ReadOnly:=true;
+
+    DBGrid1Width();
+
+
+
+    DBGrid6.DataSource:=DataSource1;    //Запрет на редактирование
+    DBGrid6.ReadOnly:=true;
+
+    DBGrid8.DataSource:=DataSource1;   //Запрет на редактирование
+    DBGrid8.ReadOnly:=true;
+
+    /////////////////////////////////////
+
+
+    //Создание таблицы для преподавателей
+    ADOConnection1.Connected:=false;
+    ADOConnection4.Connected:=false;
+
+    Tables:=CoTable.Create;
+    Tables.Name:='thr';
+    Tables.ParentCatalog:=DB;
+    DB.Tables.Append(Tables);
+    Columns:=CoColumn.Create;
+    with Columns do
+    begin
+      ParentCatalog:=DB;
+      Name:='id';
+      type_:=adInteger;
+      Properties['Autoincrement'].Value:=True;
+      Properties['Description'].Value:='Ключевое поле';
+    end;
+    Tables.Columns.Append('IDВикладача',adVarWChar,255);
+    Tables.Columns.Append('Викладач',adVarWChar,255);
+
+
+    ADOConnection4.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+    ADOConnection4.LoginPrompt:=false;
+    ADOConnection4.Connected:=true;
+    ADOQuery4.Connection:=ADOConnection1;
+    ADOQuery4.SQL.Clear;
+    ADOQuery4.SQL.Add('SELECT * FROM thr');
+    ADOQuery4.Active:=true;
+    DataSource4.DataSet:=ADOQuery4;
+    DBGrid4.DataSource:=DataSource4;
+    DBGrid4.ReadOnly:=true;
+
+
+    /////////////////////////////////////////////////////////////////////////
+
+
+
+    // Создание таблицы замен учителей
+     ADOConnection5.Connected:=false;
+
+    Tables:=CoTable.Create;
+    Tables.Name:='zam';
+
+    Tables.ParentCatalog:=DB;
+    DB.Tables.Append(Tables);
+    Columns:=CoColumn.Create;
+    with Columns do
+    begin
+      ParentCatalog:=DB;
+      Name:='id';
+      type_:=adInteger;
+      Properties['Autoincrement'].Value:=True;
+      Properties['Description'].Value:='Ключевое поле';
+    end;
+
+    Tables.Columns.Append(Columns,0,0);
+    Tables.Columns.Append('Дата',adVarWChar,255);
+    Tables.Columns.Append('Група',adVarWChar,255);
+    Tables.Columns.Append('№_ленты',adVarWChar,255);
+    Tables.Columns.Append('Ким_заміняємо',adVarWChar,255);
+    Tables.Columns.Append('Предмет1',adVarWChar,255);
+    Tables.Columns.Append('Кого_заміняємо',adVarWChar,255);
+    Tables.Columns.Append('Предмет2',adVarWChar,255);
+    Tables.Columns.Append('Аудиторія',adVarWChar,255);
+
+
+    ADOConnection5.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
+    ADOConnection5.LoginPrompt:=false;
+    ADOConnection5.Connected:=true;
+    ADOQuery5.Connection:=ADOConnection5;
+    ADOQuery5.SQL.Clear;
+    ADOQuery5.SQL.Add('SELECT * FROM zam');
+    ADOQuery5.Active:=true;
+    DataSource5.DataSet:=ADOQuery5;
+    DBGrid5.DataSource:=DataSource5;
+    DBNavigator5.DataSource:=DataSource5;
+
+
+
+
+
+    ////////////////////////////////////////////////////////////////
+
+
+
+   DBGrid4Width();
+    DBGrid5Width();
+
+
+  end;
+
+
 
 procedure TForm1.Button2Click(Sender: TObject); //Кнопка добавления расписания группы
 var
@@ -367,6 +659,7 @@ begin
     ADOQuery2.FieldByName('Група').Value :=excel.WorkBooks[1].WorkSheets[1].Range['F'+add].Value;
     ADOQuery2.FieldByName('Дисципліна').Value :=excel.WorkBooks[1].WorkSheets[1].Range['G'+add].Value;
     ADOQuery2.FieldByName('Викладач').Value :=excel.WorkBooks[1].WorkSheets[1].Range['H'+add].Value;
+    ADOQuery2.FieldByName('Семестр').Value :='-';
     ADOQuery2.Post;
   end;
 end;
@@ -486,6 +779,7 @@ begin
   Tables.Columns.Append('Група',adVarWChar,255);
   Tables.Columns.Append('Дисципліна',adVarWChar,255);
   Tables.Columns.Append('Викладач',adVarWChar,255);
+  Tables.Columns.Append('Семестр',adVarWChar,255);
 
   ADOConnection2.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
   ADOConnection2.LoginPrompt:=false;
@@ -591,11 +885,7 @@ begin
 
 
 
-  DBGrid7.Columns[0].Width := 0; //ширина полей
-  DBGrid7.Columns[1].Width := 80; //ширина полей
-  DBGrid7.Columns[2].Width := 80; //ширина полей
-  DBGrid7.Columns[3].Width := 80; //ширина полей
-  DBGrid7.Columns[4].Width := 80; //ширина полей
+
 
 
 
@@ -636,16 +926,6 @@ begin
   DBNavigator9.DataSource:=DataSource9;
 
 
-
-
-  DBGrid9.Columns[0].Width := 0; //ширина полей
-  DBGrid9.Columns[1].Width := 100; //ширина полей
-  DBGrid9.Columns[2].Width := 100; //ширина полей
-  DBGrid9.Columns[3].Width := 100; //ширина полей
-  DBGrid9.Columns[4].Width := 120; //ширина полей
-  DBGrid9.Columns[5].Width := 150; //ширина полей
-
-
   //////////////////////////////////////////////////////////////////
 
 
@@ -655,27 +935,11 @@ begin
   ADOQuery1.FieldByName('IDГруп').AsString := test;
   ADOQuery1.Post;
 
-  DBGrid1.Columns[0].Width := 0; //ширина полей
-  DBGrid1.Columns[1].Width := 80; //ширина полей
+  DBGrid2Width();
+  DBGrid3Width();
+  DBGrid7Width();
+  DBGrid9Width();
 
-  //Таблица с группи на вкладке графика
-  DBGrid6.Columns[0].Width := 0; //ширина полей
-  DBGrid6.Columns[1].Width := 80; //ширина полей
-
-
-    //Таблица с группи на вкладке суббота
-  DBGrid8.Columns[0].Width := 0; //ширина полей
-  DBGrid8.Columns[1].Width := 80; //ширина полей
-
-  DBGrid2.Columns[0].Width := 30; //ширина полей
-  DBGrid2.Columns[1].Width := 40; //ширина полей
-  DBGrid2.Columns[2].Width := 40; //ширина полей
-  DBGrid2.Columns[3].Width := 70; //ширина полей
-  DBGrid2.Columns[4].Width := 0; //ширина полей
-  DBGrid2.Columns[5].Width := 220; //ширина полей
-  DBGrid2.Columns[6].Width := 120; //ширина полей
-
-  for i := 0 to 23 do DBGrid3.Columns[i].Width := 15; //ширина полей
 
   Edit1.Text:='';
 end;
@@ -767,6 +1031,7 @@ begin
   Tables.Columns.Append('Група',adVarWChar,255);
   Tables.Columns.Append('Дисципліна',adVarWChar,255);
   Tables.Columns.Append('Викладач',adVarWChar,255);
+  Tables.Columns.Append('Семестр',adVarWChar,255);
 
   ADOConnection2.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
   ADOConnection2.LoginPrompt:=false;
@@ -869,14 +1134,6 @@ begin
   DBGrid7.DataSource:=DataSource7;
   DBNavigator7.DataSource:=DataSource7;
 
-  //Создание таблицы расписания
-
-
-  DBGrid7.Columns[0].Width := 0; //ширина полей
-  DBGrid7.Columns[1].Width := 80; //ширина полей
-  DBGrid7.Columns[2].Width := 80; //ширина полей
-  DBGrid7.Columns[3].Width := 80; //ширина полей
-  DBGrid7.Columns[4].Width := 80; //ширина полей
 
   // Создание таблицы суббботы
 
@@ -920,15 +1177,6 @@ begin
 
 
 
-
-  DBGrid9.Columns[0].Width := 0; //ширина полей
-  DBGrid9.Columns[1].Width := 100; //ширина полей
-  DBGrid9.Columns[2].Width := 100; //ширина полей
-  DBGrid9.Columns[3].Width := 100; //ширина полей
-  DBGrid9.Columns[4].Width := 120; //ширина полей
-  DBGrid9.Columns[5].Width := 150; //ширина полей
-
-
   //////////////////////////////////////////////////////////////////
 
 
@@ -941,26 +1189,8 @@ begin
   ADOQuery1.FieldByName('IDГруп').AsString := test;
   ADOQuery1.Post;
 
-  DBGrid1.Columns[0].Width := 0; //ширина полей
-  DBGrid1.Columns[1].Width := 80; //ширина полей
 
-  // Табл с грп из вкладки график
-  DBGrid6.Columns[0].Width := 0; //ширина полей
-  DBGrid6.Columns[1].Width := 80; //ширина полей
 
-    // Табл с грп из вкладки суббота
-  DBGrid8.Columns[0].Width := 0; //ширина полей
-  DBGrid8.Columns[1].Width := 80; //ширина полей
-
-  DBGrid2.Columns[0].Width := 30; //ширина полей
-  DBGrid2.Columns[1].Width := 40; //ширина полей
-  DBGrid2.Columns[2].Width := 40; //ширина полей
-  DBGrid2.Columns[3].Width := 70; //ширина полей
-  DBGrid2.Columns[4].Width := 0; //ширина полей
-  DBGrid2.Columns[5].Width := 220; //ширина полей
-  DBGrid2.Columns[6].Width := 120; //ширина полей
-
-  for i := 0 to 23 do DBGrid3.Columns[i].Width := 15; //ширина полей
 
   Edit1.Text:='';
 
@@ -980,9 +1210,15 @@ begin
   ADOQuery2.FieldByName('Група').Value :=excel.WorkBooks[1].WorkSheets[1].Range['F'+add].Value;
   ADOQuery2.FieldByName('Дисципліна').Value :=excel.WorkBooks[1].WorkSheets[1].Range['G'+add].Value;
   ADOQuery2.FieldByName('Викладач').Value :=excel.WorkBooks[1].WorkSheets[1].Range['H'+add].Value;
+  ADOQuery2.FieldByName('Семестр').Value :='-';
   ADOQuery2.Post;
 
     end;
+
+     DBGrid2Width();
+     DBGrid3Width();
+     DBGrid7Width();
+     DBGrid9Width();
 
 end;
 
@@ -1026,11 +1262,7 @@ begin
 
 
 
-  DBGrid7.Columns[0].Width := 0; //ширина полей
-  DBGrid7.Columns[1].Width := 80; //ширина полей
-  DBGrid7.Columns[2].Width := 80; //ширина полей
-  DBGrid7.Columns[3].Width := 80; //ширина полей
-  DBGrid7.Columns[4].Width := 80; //ширина полей
+  DBGrid7Width();
 
 end;
 
@@ -1051,15 +1283,9 @@ begin
   ADOQuery3.SQL.Add('SELECT * FROM '+DBGrid1.Fields[0].Value+'rsp');
   ADOQuery3.Active:=true;
 
-  DBGrid2.Columns[0].Width := 0; //ширина полей
-  DBGrid2.Columns[1].Width := 40; //ширина полей
-  DBGrid2.Columns[2].Width := 40; //ширина полей
-  DBGrid2.Columns[3].Width := 70; //ширина полей
-  DBGrid2.Columns[4].Width := 0; //ширина полей
-  DBGrid2.Columns[5].Width := 220; //ширина полей
-  DBGrid2.Columns[6].Width := 120; //ширина полей
+  DBGrid2Width();   // Функция ширина рядков таблицы
+  DBGrid3Width();   // Функция ширина рядков таблицы
 
-  for i := 0 to 23 do DBGrid3.Columns[i].Width := 15; //ширина полей
 end;
 
 procedure TForm1.DBGrid6CellClick(Column: TColumn);
@@ -1076,11 +1302,7 @@ begin
   ADOQuery7.Active:=true;
 
 
-  DBGrid7.Columns[0].Width := 0; //ширина полей
-  DBGrid7.Columns[1].Width := 80; //ширина полей
-  DBGrid7.Columns[2].Width := 80; //ширина полей
-  DBGrid7.Columns[3].Width := 80; //ширина полей
-  DBGrid7.Columns[4].Width := 80; //ширина полей
+  DBGrid6Width();
 
 
 end;
@@ -1145,8 +1367,6 @@ procedure TForm1.DBGrid8CellClick(Column: TColumn);
 var
   i: integer;
 begin
-  DBGrid8.DataSource.DataSet.RecNo;
-  DBGrid8.Fields[0].Value;
 
   Panel3.Caption:='Група '+DBGrid8.Fields[1].Value;
 
@@ -1155,12 +1375,7 @@ begin
   ADOQuery9.Active:=true;
 
 
-  DBGrid9.Columns[0].Width := 0; //ширина полей
-  DBGrid9.Columns[1].Width := 100; //ширина полей
-  DBGrid9.Columns[2].Width := 100; //ширина полей
-  DBGrid9.Columns[3].Width := 100; //ширина полей
-  DBGrid9.Columns[4].Width := 120; //ширина полей
-  DBGrid9.Columns[5].Width := 150; //ширина полей
+  DBGrid9Width();
 
 
 end;
@@ -1238,6 +1453,11 @@ begin
   begin
     DB:=CoCatalog.Create;
     DB.Set_ActiveConnection('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb');
+
+
+
+
+
     //Список групп
     ADOConnection1.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
     ADOConnection1.LoginPrompt:=false;
@@ -1264,29 +1484,18 @@ begin
 
     DBNavigator1.DataSource:=DataSource1;
 
-    DBGrid1.DataSource.DataSet.RecNo;
-    DBGrid1.Fields[0].Value;
 
-    DBGrid6.DataSource.DataSet.RecNo;
-    DBGrid6.Fields[0].Value;
 
-    DBGrid8.DataSource.DataSet.RecNo;
-    DBGrid8.Fields[0].Value;
 
-    DBGrid1.Columns[0].Width := 0; //ширина полей
-    DBGrid1.Columns[1].Width := 80; //ширина полей
 
-    DBGrid6.Columns[0].Width := 0; //ширина полей
-    DBGrid6.Columns[1].Width := 80; //ширина полей
 
-    DBGrid8.Columns[0].Width := 0; //ширина полей
-    DBGrid8.Columns[1].Width := 80; //ширина полей
     //Расписание группы
     Panel1.Caption:='Група '+DBGrid1.Fields[1].Value;
+
     ADOConnection2.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
     ADOConnection2.LoginPrompt:=false;
     ADOConnection2.Connected:=true;
-    ADOQuery2.Connection:=ADOConnection1;
+    ADOQuery2.Connection:=ADOConnection2;
     ADOQuery2.SQL.Clear;
     ADOQuery2.SQL.Add('SELECT * FROM '+DBGrid1.Fields[0].Value);
     ADOQuery2.Active:=true;
@@ -1294,13 +1503,9 @@ begin
     DBGrid2.DataSource:=DataSource2;
     DBNavigator2.DataSource:=DataSource2;
 
-    DBGrid2.Columns[0].Width := 30; //ширина полей
-    DBGrid2.Columns[1].Width := 40; //ширина полей
-    DBGrid2.Columns[2].Width := 40; //ширина полей
-    DBGrid2.Columns[3].Width := 70; //ширина полей
-    DBGrid2.Columns[4].Width := 0; //ширина полей
-    DBGrid2.Columns[5].Width := 220; //ширина полей
-    DBGrid2.Columns[6].Width := 120; //ширина полей
+
+
+
     //Расписание числитель/знаменатель
     ADOConnection3.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
     ADOConnection3.LoginPrompt:=false;
@@ -1312,7 +1517,11 @@ begin
     ADOQuery3.Active:=true;
     DataSource3.DataSet:=ADOQuery3;
     DBGrid3.DataSource:=DataSource3;
-    for i := 0 to 23 do DBGrid3.Columns[i].Width := 15; //ширина полей
+
+
+
+
+
     //Список преподавателей
     ADOConnection4.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
     ADOConnection4.LoginPrompt:=false;
@@ -1325,10 +1534,7 @@ begin
     DBGrid4.DataSource:=DataSource4;
     DBGrid4.ReadOnly:=true;
     DBGrid4.DataSource.DataSet.RecNo;
-    DBGrid4.Fields[0].Value;
 
-    DBGrid4.Columns[0].Width := 0; //ширина полей
-    DBGrid4.Columns[1].Width := 80; //ширина полей
 
 
     ADOConnection7.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
@@ -1342,13 +1548,7 @@ begin
     DBGrid7.DataSource:=DataSource7;
     DBNavigator7.DataSource:=DataSource7;
 
-    DBGrid7.Columns[0].Width := 0; //ширина полей
-    DBGrid7.Columns[1].Width := 80; //ширина полей
-    DBGrid7.Columns[2].Width := 80; //ширина полей
-    DBGrid7.Columns[3].Width := 80; //ширина полей
-    DBGrid7.Columns[4].Width := 80; //ширина полей
-
-
+/////////////////////////////
 
 
 
@@ -1363,12 +1563,6 @@ begin
     DBGrid9.DataSource:=DataSource9;
     DBNavigator9.DataSource:=DataSource9;
 
-  DBGrid9.Columns[0].Width := 0; //ширина полей
-  DBGrid9.Columns[1].Width := 100; //ширина полей
-  DBGrid9.Columns[2].Width := 100; //ширина полей
-  DBGrid9.Columns[3].Width := 100; //ширина полей
-  DBGrid9.Columns[4].Width := 120; //ширина полей
-  DBGrid9.Columns[5].Width := 150; //ширина полей
 
   ////////////////////////////////////////////////
      ADOConnection5.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
@@ -1382,15 +1576,6 @@ begin
     DBGrid5.DataSource:=DataSource5;
     DBNavigator5.DataSource:=DataSource5;
 
-  DBGrid5.Columns[0].Width := 0; //ширина полей
-  DBGrid5.Columns[1].Width := 70; //ширина полей
-  DBGrid5.Columns[2].Width := 70; //ширина полей
-  DBGrid5.Columns[3].Width := 70; //ширина полей
-  DBGrid5.Columns[4].Width := 70; //ширина полей
-  DBGrid5.Columns[5].Width := 70; //ширина полей
-  DBGrid5.Columns[6].Width := 70; //ширина полей
-  DBGrid5.Columns[7].Width := 70; //ширина полей
-  DBGrid5.Columns[8].Width := 70; //ширина полей
 
 
 
@@ -1407,159 +1592,28 @@ begin
   DBLookupComboBox2.KeyField:= 'Викладач';
   DBLookupComboBox2.ListField:= 'Викладач';
   DBLookupComboBox2.ListSource:= DataSource4;
- // DBLookupComboBox2.TabOrder:= 4;
-
-{DBLookupComboBox1.DataField:= 'поле, которое будет изменяться';
-  DBLookupComboBox1.DataSource:=DataS ource1;
-  DBLookupComboBox1.KeyField :='поле,которое будет вставляться в DataField '
-  DBLookupComboBox1.ListField:='поле , которое будет отображаться в выпадающем списке';
-DBLookupComboBox1.ListSource:=DataS ource2; }
 
 
+    DBLookupComboBox4.DataField:= 'Кого_заміняємо';
+  DBLookupComboBox4.DataSource:= DataSource5;
+  DBLookupComboBox4.KeyField:= 'Викладач';
+  DBLookupComboBox4.ListField:= 'Викладач';
+  DBLookupComboBox4.ListSource:= DataSource4;
 
 
-
-
-
-
+    DBGrid1Width();
+    DBGrid2Width();
+    DBGrid3Width();
+    DBGrid4Width();
+    DBGrid5Width();
+    DBGrid7Width();
+    DBGrid9Width();
   end
   else
   begin
-    DB:=CoCatalog.Create;
-    DB.Create('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb');
-    DB.Set_ActiveConnection('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb');
-    //Создание таблицы для групп
-    ADOConnection1.Connected:=false;
-    Tables:=CoTable.Create;
-    Tables.Name:='grp';
-    Tables.ParentCatalog:=DB;
-    DB.Tables.Append(Tables);
-    Columns:=CoColumn.Create;
-    with Columns do
-    begin
-      ParentCatalog:=DB;
-      Name:='id';
-      type_:=adInteger;
-      Properties['Autoincrement'].Value:=True;
-      Properties['Description'].Value:='Ключевое поле';
-    end;
-    Tables.Columns.Append('IDГруп',adVarWChar,255);
-    Tables.Columns.Append('Група',adVarWChar,255);
-    ADOConnection1.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
-    ADOConnection1.LoginPrompt:=false;
-    ADOConnection1.Connected:=true;
-    ADOQuery1.Connection:=ADOConnection1;
-    ADOQuery1.SQL.Clear;
-    ADOQuery1.SQL.Add('SELECT * FROM grp');
-    ADOQuery1.Active:=true;
-    DataSource1.DataSet:=ADOQuery1;
-
-    DBGrid1.DataSource:=DataSource1;
-    DBGrid1.ReadOnly:=true;
-
-    DBGrid6.DataSource:=DataSource1;
-    DBGrid6.ReadOnly:=true;
-
-    DBGrid8.DataSource:=DataSource1;
-    DBGrid8.ReadOnly:=true;
-
-    DBNavigator1.DataSource:=DataSource1;
-    //Создание таблицы для преподавателей
-    ADOConnection1.Connected:=false;
-    Tables:=CoTable.Create;
-    Tables.Name:='thr';
-    Tables.ParentCatalog:=DB;
-    DB.Tables.Append(Tables);
-    Columns:=CoColumn.Create;
-    with Columns do
-    begin
-      ParentCatalog:=DB;
-      Name:='id';
-      type_:=adInteger;
-      Properties['Autoincrement'].Value:=True;
-      Properties['Description'].Value:='Ключевое поле';
-    end;
-    Tables.Columns.Append('IDВикладача',adVarWChar,255);
-    Tables.Columns.Append('Викладач',adVarWChar,255);
-    ADOConnection4.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
-    ADOConnection4.LoginPrompt:=false;
-    ADOConnection4.Connected:=true;
-    ADOQuery4.Connection:=ADOConnection1;
-    ADOQuery4.SQL.Clear;
-    ADOQuery4.SQL.Add('SELECT * FROM thr');
-    ADOQuery4.Active:=true;
-    DataSource4.DataSet:=ADOQuery4;
-    DBGrid4.DataSource:=DataSource4;
-    DBGrid4.ReadOnly:=true;
-
-    // Создание таблицы замен учителей
-
-  ADOConnection5.Connected:=false;
-
-  Tables:=CoTable.Create;
-  Tables.Name:='zam';
-
-  Tables.ParentCatalog:=DB;
-  DB.Tables.Append(Tables);
-  Columns:=CoColumn.Create;
-  with Columns do
-  begin
-    ParentCatalog:=DB;
-    Name:='id';
-    type_:=adInteger;
-    Properties['Autoincrement'].Value:=True;
-    Properties['Description'].Value:='Ключевое поле';
-  end;
-
-  Tables.Columns.Append(Columns,0,0);
-  Tables.Columns.Append('Дата',adVarWChar,255);
-  Tables.Columns.Append('Група',adVarWChar,255);
-  Tables.Columns.Append('№_ленты',adVarWChar,255);
-  Tables.Columns.Append('Ким_заміняємо',adVarWChar,255);
-  Tables.Columns.Append('Предмет1',adVarWChar,255);
-  Tables.Columns.Append('Кого заміняємо',adVarWChar,255);
-  Tables.Columns.Append('Предмет2',adVarWChar,255);
-  Tables.Columns.Append('Аудиторія',adVarWChar,255);
-
-
-
-   ADOConnection5.ConnectionString:='Provider=Microsoft.Jet.OLEDB.4.0;Data Source=test.mdb;';
-    ADOConnection5.LoginPrompt:=false;
-    ADOConnection5.Connected:=true;
-    ADOQuery5.Connection:=ADOConnection5;
-    ADOQuery5.SQL.Clear;
-    ADOQuery5.SQL.Add('SELECT * FROM zam');
-    ADOQuery5.Active:=true;
-    DataSource5.DataSet:=ADOQuery5;
-    DBGrid5.DataSource:=DataSource5;
-    DBNavigator5.DataSource:=DataSource5;
-
-
-  DBGrid5.Columns[0].Width := 0; //ширина полей
-  DBGrid5.Columns[1].Width := 70; //ширина полей
-  DBGrid5.Columns[2].Width := 70; //ширина полей
-  DBGrid5.Columns[3].Width := 70; //ширина полей
-  DBGrid5.Columns[4].Width := 70; //ширина полей
-  DBGrid5.Columns[5].Width := 70; //ширина полей
-  DBGrid5.Columns[6].Width := 70; //ширина полей
-  DBGrid5.Columns[7].Width := 70; //ширина полей
-  DBGrid5.Columns[8].Width := 70; //ширина полей
-
-
-
-
-
-
-
-  //////////////////////////////////////////////////////////////////
-
 
   end;
 
-
-
-
-  //////////////////////////////////////////////////////////////////
 
 
 
@@ -1578,6 +1632,28 @@ end;
 procedure TForm1.ListBox2DblClick(Sender: TObject);
 begin
  ListBox2.Items.Delete(ListBox2.ItemIndex);
+end;
+
+procedure TForm1.N1Click(Sender: TObject);
+begin
+  PageControl1.Visible:=false;
+  Button17.Visible:=true;
+  Button18.Visible:=true;
+  Button19.Visible:=true;
+  Button20.Visible:=true;
+  Button21.Visible:=true;
+  Button22.Visible:=true;
+end;
+
+procedure TForm1.StatusBar1Hint(Sender: TObject);
+begin
+  StatusBar1.Panels[2].Text := Application.Hint;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+    StatusBar1.Panels[0].text:='Дата: '+DateToStr(now);
+  StatusBar1.Panels[1].text:='Время: '+TimeToStr(now);
 end;
 
 end.
